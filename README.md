@@ -1,7 +1,8 @@
 # ccydemo
 个人日常知识点练习demo
 <br/>
-？ -- 2017-11-21 ：<br/>
+
+*2017.？-？ -- 2017-11-21 ：*
 * recyclerView的itemTouchHelper
 * 开源库photoView使用
 * 用MediaRecorder录音
