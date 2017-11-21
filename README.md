@@ -2,7 +2,7 @@
 个人日常知识点练习demo
 <br/>
 
-*2017.？-？ -- 2017-11-21 ：*
+*2017-？-？ -- 2017-11-21 ：*
 * recyclerView的itemTouchHelper
 * 开源库photoView使用
 * 用MediaRecorder录音
@@ -12,7 +12,7 @@
 * 某角标、侧滑删除库
 * ViewDragHelper拖动帮助类
 * recyclerView 网格中占整行
-* retrfit测试
+* retrofit测试
 * EventBus测试
 * RxJava学习（重要！）
 * OkHttp学习
