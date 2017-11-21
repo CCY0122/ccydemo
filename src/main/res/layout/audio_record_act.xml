@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <Button
+        android:id="@+id/audio_start_r"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="start record"/>
+    <Button
+        android:id="@+id/audio_stop_r"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="stop record"/>
+    <Button
+        android:id="@+id/audio_play"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="play"/>
+    <Button
+        android:id="@+id/audio_stop_play"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="stop"/>
+    <Button
+        android:id="@+id/audio_pause_play"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="pause"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="音量（振幅）"
+            android:textSize="18sp"
+            android:padding="10dp"/>
+        <TextView
+            android:id="@+id/audio_volum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="18sp"
+            android:padding="10dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="长度"
+            android:textSize="18sp"
+            android:padding="10dp"/>
+        <TextView
+            android:id="@+id/audio_length"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="18sp"
+            android:padding="10dp"/>
+    </LinearLayout>
+
+
+</LinearLayout>

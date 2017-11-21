@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/zxingopen_per_camera"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/camera_per"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/zxingopen_per_external"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="申请外部读写（不申请能打开相册吗？）"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/zxingopen_open"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="打开相机扫描二维码"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/zxingopen_album"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="相册中扫描"
+        android:textSize="18sp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="扫描结果:"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/zxingopen_result"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="15sp" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/zxingopen_img"
+        android:layout_width="100dp"
+        android:layout_height="100dp" />
+
+
+</LinearLayout>

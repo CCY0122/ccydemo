@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.ccydemo">
+
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <meta-data
+            android:name="PRODUCT"
+            android:value="${CHANNEL_VALUES}"/>
+        <activity android:name=".MenuActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".DragAndSwipe.MainActivity" />
+        <activity android:name=".PhotoViewDemo.PhotoViewDemo" />
+        <activity android:name=".RecordDemo.MediaRecoderActivity" />
+        <activity android:name=".RecordDemo.AudioRecordActivity" />
+        <activity android:name=".ZxingDemo.ZxingByOpen" />
+        <activity android:name=".ZxingDemo.MyCaptureActivity" />
+        <activity android:name=".BadgeAndSlideMenu.BadgeAndSlidMenu"/>
+        <activity android:name=".ViewDragHelper.Act"/>
+        <activity android:name=".RecyclerViewHeader.Act"/>
+        <activity android:name=".RetrofitDemo.RetrofitActivity"/>
+        <activity android:name=".EventBusDemo.EventBusAct1"/>
+        <activity android:name=".EventBusDemo.EventBusAct2"/>
+        <activity android:name=".RxjavaDemo.RxActivity"
+            android:windowSoftInputMode="adjustResize"/>
+        <activity android:name=".okhttpDemo.OkhttpActivity"/>
+        <activity android:name=".videoViewDemo.VideoViewAct"
+            android:configChanges="orientation|screenSize"/>
+        <activity android:name=".gifDemo.GifAct"/>
+        <activity android:name=".recyclerviewDiffutilDemo.DiffUtilAct"/>
+        <activity android:name=".dragAndDropDemo.DragAndDropAct"/>
+        <activity android:name=".multitypeDemo.MultitypeAct"/>
+
+        <service
+            android:name=".AccessibilityDemo.MyAccessibilityService"
+            android:label="@string/access_name"
+            android:enabled="true"
+            android:exported="true"
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService"/>
+            </intent-filter>
+            <meta-data
+                android:name="android.accessibilityservice"
+                android:resource="@xml/my_access"/>
+        </service>
+
+    </application>
+
+</manifest>

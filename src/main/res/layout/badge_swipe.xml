@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/tv1"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:text="ccyccy"
+        android:gravity="center"
+        android:textSize="18sp"/>
+    <ImageView
+        android:id="@+id/iv1"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:src="@drawable/q"/>
+    <com.baoyz.swipemenulistview.SwipeMenuListView
+        android:id="@+id/lv1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </com.baoyz.swipemenulistview.SwipeMenuListView>
+
+</LinearLayout>

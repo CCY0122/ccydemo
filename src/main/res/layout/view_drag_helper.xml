@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <com.example.ccydemo.ViewDragHelper.ViewDragHelperLayout
+        android:id="@+id/vgh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:background="#55000000"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/t1"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:text="释放回原位"
+            android:gravity="center"
+            android:background="#99ff0000"/>
+        <TextView
+            android:id="@+id/t2"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:text="可边缘拖动"
+            android:gravity="center"
+            android:background="#9900ff00"/>
+        <Button
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:id="@+id/b1"
+            android:text="btn"
+            android:background="#990000ff"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="50dp"/>
+    </com.example.ccydemo.ViewDragHelper.ViewDragHelperLayout>
+
+</FrameLayout>

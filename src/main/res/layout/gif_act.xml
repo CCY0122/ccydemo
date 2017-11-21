@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">'
+
+    <Button
+        android:id="@+id/permission"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="权限申请" />
+
+    <Button
+        android:id="@+id/album"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="选择图片" />
+
+    <Button
+        android:id="@+id/clear_album"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="清空图片" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="170dp">
+
+        <TextView
+            android:id="@+id/gif_path"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </ScrollView>
+
+    <Button
+        android:id="@+id/to_gif"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="转gif" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/gif_result"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </ScrollView>
+
+</LinearLayout>

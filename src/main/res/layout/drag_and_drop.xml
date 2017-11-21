@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:background="@color/grgray">
+
+        <FrameLayout
+            android:id="@+id/drag_fl_1"
+            android:layout_width="150dp"
+            android:layout_height="180dp"
+            android:layout_margin="10dp"
+            android:background="#ffffff">
+
+            <TextView
+                android:id="@+id/drag_tv_1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="10dp"
+                android:text="我只接收雨天图标"/>
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/drag_fl_2"
+            android:layout_width="150dp"
+            android:layout_height="180dp"
+            android:layout_alignParentRight="true"
+            android:layout_margin="10dp"
+            android:background="#ffffff">
+
+            <TextView
+                android:id="@+id/drag_tv_2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="10dp"
+                android:text="我只接收晴天图标"/>
+        </FrameLayout>
+
+        <LinearLayout
+            android:id="@+id/drag_ll_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/drag_fl_1"
+            android:layout_marginTop="50dp"
+            android:background="#ffffff"
+            android:orientation="horizontal"
+            android:padding="20dp">
+
+            <ImageView
+                android:id="@+id/drag_img_1"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/rain"
+                android:background="#44ff0000"
+                android:layout_marginRight="50dp"/>
+
+            <ImageView
+                android:id="@+id/drag_img_2"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/sun"
+                android:background="#44ff0000"
+                android:layout_marginRight="50dp"/>
+
+            <ImageView
+                android:id="@+id/drag_img_3"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/q"
+                android:background="#44ff0000"/>
+        </LinearLayout>
+    </RelativeLayout>
+
+    <!--外部布局也能拖的过去吗？-->
+    <FrameLayout
+        android:id="@+id/drag_out"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="10dp"
+        android:background="#44ff0000">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="我是外部布局" />
+    </FrameLayout>
+
+
+</RelativeLayout>

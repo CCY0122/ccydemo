@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/okhttp_b1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="发起请求" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="130dp">
+
+        <TextView
+            android:id="@+id/okhttp_t1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#44ff0000" />
+    </ScrollView>
+
+    <WebView
+        android:id="@+id/okhttp_web"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></WebView>
+
+</LinearLayout>
