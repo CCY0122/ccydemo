@@ -1,13 +1,10 @@
 package com.example.ccydemo;
 
-import android.app.Dialog;
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -20,13 +17,18 @@ import com.example.ccydemo.RecordDemo.AudioRecordActivity;
 import com.example.ccydemo.RecordDemo.MediaRecoderActivity;
 import com.example.ccydemo.RetrofitDemo.RetrofitActivity;
 import com.example.ccydemo.RxjavaDemo.RxActivity;
+import com.example.ccydemo.TestDemo.TestAct;
 import com.example.ccydemo.ViewDragHelper.Act;
 import com.example.ccydemo.ZxingDemo.ZxingByOpen;
 import com.example.ccydemo.dragAndDropDemo.DragAndDropAct;
 import com.example.ccydemo.gifDemo.GifAct;
+import com.example.ccydemo.multiWndForXM.MultiWndAct;
 import com.example.ccydemo.multitypeDemo.MultitypeAct;
 import com.example.ccydemo.okhttpDemo.OkhttpActivity;
+import com.example.ccydemo.rectLoadingView.RectLoadingAct;
 import com.example.ccydemo.recyclerviewDiffutilDemo.DiffUtilAct;
+import com.example.ccydemo.rollerRadioGroup.RollerRadioAct;
+import com.example.ccydemo.sliderDemo.SliderAct1;
 import com.example.ccydemo.videoViewDemo.VideoViewAct;
 
 import butterknife.BindView;
@@ -141,34 +143,68 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     @OnClick(R.id.b12)
-    void b12(){
+    void b12() {
         s(RxActivity.class);
     }
 
     @OnClick(R.id.b13)
-    void b13(){
+    void b13() {
         s(OkhttpActivity.class);
     }
 
     @OnClick(R.id.b14)
-    void b14(){
+    void b14() {
         s(VideoViewAct.class);
     }
+
     @OnClick(R.id.b15)
-    void b15(){
+    void b15() {
         s(GifAct.class);
     }
+
     @OnClick(R.id.b16)
-    void b16(){
+    void b16() {
         s(DiffUtilAct.class);
     }
+
     @OnClick(R.id.b17)
-    void b17(){
+    void b17() {
         s(DragAndDropAct.class);
     }
+
     @OnClick(R.id.b18)
-    void b18(){
+    void b18() {
         s(MultitypeAct.class);
+    }
+
+    @OnClick(R.id.b19)
+    void b19() {
+        s(RectLoadingAct.class);
+    }
+
+    @OnClick(R.id.b20)
+    void b20(){
+        s(RollerRadioAct.class);
+    }
+
+    @OnClick(R.id.b21)
+    void b21(){
+        s(SliderAct1.class);
+    }
+
+    @OnClick(R.id.b22)
+    void b22(){
+        s(MultiWndAct.class);
+    }
+
+    @OnClick(R.id.b23)
+    void b23(){
+        s(WeatherLineAct.class);
+    }
+
+    @OnClick(R.id.b24)
+    void b24(){
+        s(TestAct.class);
     }
 
 }

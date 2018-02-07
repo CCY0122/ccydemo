@@ -9,7 +9,7 @@
         android:maxWidth="190dp"
         android:padding="8dp"
         android:layout_gravity="right"
-        android:background="#44ff0000"/>
+        android:background="#44ff0000" />
 
 
 </LinearLayout>

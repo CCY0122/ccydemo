@@ -135,7 +135,6 @@ public class MultitypeAct extends BaseActivity {
 
     private void initAdapter() {
         adapter = new MultiTypeAdapter();
-
         //测试同一个类型的ViewBinder多次注册的影响
         //结论：会覆盖
         NormalViewBinder normalViewBinder1 = new NormalViewBinder();
@@ -171,7 +170,6 @@ public class MultitypeAct extends BaseActivity {
                 return position == 0 ? 0 : 1;
             }
         });
-
 
         recyclerView.setAdapter(adapter);
     }

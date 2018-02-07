@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/layoutRoot"
+    android:background="#ffffffff">
+    <Button
+        android:id="@+id/btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="open"/>
+    <com.example.ccydemo.sliderDemo.Frame1
+        android:id="@+id/vg1"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:background="#44000000">
+        <com.example.ccydemo.sliderDemo.Frame2
+            android:id="@+id/vg2"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:background="#44ff0000">
+            <com.example.ccydemo.sliderDemo.View3
+                android:id="@+id/tv1"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="#4400ff00"/>
+        </com.example.ccydemo.sliderDemo.Frame2>
+    </com.example.ccydemo.sliderDemo.Frame1>
+
+</LinearLayout>

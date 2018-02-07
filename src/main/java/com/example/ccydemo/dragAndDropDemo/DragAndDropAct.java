@@ -3,12 +3,14 @@ package com.example.ccydemo.dragAndDropDemo;
 import android.content.ClipData;
 import android.content.ClipDescription;
 import android.content.Intent;
+import android.content.res.AssetManager;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Point;
 import android.graphics.Rect;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -20,9 +22,12 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.example.ccydemo.BaseActivity;
 import com.example.ccydemo.R;
 import com.example.ccydemo.Util.Util;
+
+import java.io.File;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -57,7 +62,8 @@ public class DragAndDropAct extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.drag_and_drop);
         ButterKnife.bind(this);
-
+//        File file = new File(Environment.getExternalStorageDirectory().getPath() + "/GifDemo/mgif.gif");
+//        Glide.with(this).load(file).asGif().into(img1);
         initViewDragListener(); //初始化要接收拖动事件的view的监听器
         initDragViews();  //初始化能拖动的view
     }

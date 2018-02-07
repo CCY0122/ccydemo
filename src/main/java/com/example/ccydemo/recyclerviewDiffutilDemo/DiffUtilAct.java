@@ -5,6 +5,8 @@ import android.support.annotation.Nullable;
 import android.support.v7.graphics.drawable.DrawerArrowDrawable;
 import android.support.v7.util.DiffUtil;
 import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.LinearSnapHelper;
+import android.support.v7.widget.PagerSnapHelper;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.widget.Button;
@@ -42,12 +44,16 @@ public class DiffUtilAct extends BaseActivity {
         adapter = new SimpleRvAdapter(datas);
         rv.setLayoutManager(new LinearLayoutManager(this));
         rv.setAdapter(adapter);
+//        LinearSnapHelper linearSnapHelper = new LinearSnapHelper();
+//        linearSnapHelper.attachToRecyclerView(rv);
+//        PagerSnapHelper pagerSnapHelper = new PagerSnapHelper();
+//        pagerSnapHelper.attachToRecyclerView(rv);
 
     }
 
     private void createDatas(List<SimpleBean> mdatas) {
         mdatas.clear();
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 20; i++) {
             SimpleBean bean = new SimpleBean(i,"asdasdada = " + i,"qweqweqweqwe",R.drawable.cloudy);
             mdatas.add(bean);
         }

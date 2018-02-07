@@ -19,7 +19,10 @@ import java.io.IOException;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
 import okhttp3.OkHttpClient;
+import okhttp3.RequestBody;
 import okhttp3.ResponseBody;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Call;
@@ -59,8 +62,6 @@ public class RetrofitActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.retrofit_act);
         ButterKnife.bind(this);
-
-
 
         initLogOkHttp();
         retrofit = new Retrofit.Builder()

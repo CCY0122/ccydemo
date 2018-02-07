@@ -4,14 +4,12 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.support.annotation.Nullable;
-import android.support.v4.view.LayoutInflaterCompat;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.PopupWindow;
@@ -23,9 +21,6 @@ import com.example.ccydemo.R;
 
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-import org.w3c.dom.Text;
-
-import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -42,6 +37,7 @@ import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.annotations.NonNull;
 import io.reactivex.disposables.Disposable;
+import io.reactivex.functions.Action;
 import io.reactivex.functions.BiFunction;
 import io.reactivex.functions.Consumer;
 import io.reactivex.functions.Function;
@@ -78,7 +74,7 @@ public class RxActivity extends BaseActivity {
         combineLatestDemo(s1, s2);
 
 
-//        doOnSubscribeThreadDemo();
+        doOnSubscribeThreadDemo();
 
 //        doOnSubscribeThreadDemo2();
 
@@ -86,6 +82,8 @@ public class RxActivity extends BaseActivity {
 
 //        map();
 //        map1();
+
+//        subjectErrorDemo();
     }
 
 
@@ -119,16 +117,16 @@ public class RxActivity extends BaseActivity {
      * popupwindow测试，无关RXJAVA
      */
     @OnClick(R.id.popup_btn)
-    public void openPopupWindow(){
-        View v = LayoutInflater.from(this).inflate(R.layout.popupwindow,null);
+    public void openPopupWindow() {
+        View v = LayoutInflater.from(this).inflate(R.layout.popupwindow, null);
         final PopupWindow pop = new PopupWindow(v, 500, 300);
         View content = v.findViewById(R.id.content);
         TextView t = (TextView) v.findViewById(R.id.pop_t1);
         t.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(RxActivity.this,"asdasd",Toast.LENGTH_LONG).show();
-                if(pop != null){
+                Toast.makeText(RxActivity.this, "asdasd", Toast.LENGTH_LONG).show();
+                if (pop != null) {
                     pop.dismiss();
                 }
             }
@@ -146,18 +144,19 @@ public class RxActivity extends BaseActivity {
 
 //        Log.d("ccy","height = " + content.getHeight()+";width = " + content.getWidth());
 //        Log.d("ccy","btn height = " + popBtn.getHeight());
-        v.measure(View.MeasureSpec.UNSPECIFIED,View.MeasureSpec.UNSPECIFIED);
-        pop.showAtLocation(popBtn, Gravity.NO_GRAVITY,location1[0],location1[1] - v.getMeasuredHeight());
+        v.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED);
+        pop.showAtLocation(popBtn, Gravity.NO_GRAVITY, location1[0], location1[1] - v.getMeasuredHeight());
     }
 
 
     /**
      * 状态位测试，无关RXJAVA
+     *
      * @param v
      */
-    @OnClick({R.id.state_1,R.id.state_2})
-    public void stateTest(View v){
-        switch (v.getId()){
+    @OnClick({R.id.state_1, R.id.state_2})
+    public void stateTest(View v) {
+        switch (v.getId()) {
             case R.id.state_1:
                 stateTv.setEnabled(!stateTv.isEnabled());
                 break;
@@ -193,6 +192,12 @@ public class RxActivity extends BaseActivity {
                 e.onComplete();
             }
         }).subscribeOn(Schedulers.newThread())
+                .flatMap(new Function<Integer, ObservableSource<Integer>>() {
+                    @Override
+                    public ObservableSource<Integer> apply(Integer integer) throws Exception {
+                        return null;
+                    }
+                })
                 .flatMap(new Function<Integer, ObservableSource<String>>() {
                     @Override
                     public ObservableSource<String> apply(@NonNull final Integer integer) throws Exception {
@@ -379,11 +384,11 @@ public class RxActivity extends BaseActivity {
                 });
     }
 
-    private void map1(){
+    private void map1() {
         Observable.create(new ObservableOnSubscribe<Integer>() {
             @Override
             public void subscribe(@NonNull ObservableEmitter<Integer> e) throws Exception {
-                Log.d("ccy","1 emit thread = " + Thread.currentThread());
+                Log.d("ccy", "1 emit thread = " + Thread.currentThread());
                 e.onNext(1);
             }
         })
@@ -431,6 +436,12 @@ public class RxActivity extends BaseActivity {
                         //结论：io线程
                     }
                 })
+                .map(new Function<String, String>() {
+                    @Override
+                    public String apply(String s) throws Exception {
+                        return "2";
+                    }
+                })
                 .doOnError(new Consumer<Throwable>() {
                     @Override
                     public void accept(Throwable throwable) throws Exception {
@@ -471,13 +482,23 @@ public class RxActivity extends BaseActivity {
                     public void accept(Throwable throwable) throws Exception {
                         Log.d("ccy", "onError accept thread = " + Thread.currentThread());
                     }
+                }, new Action() {
+                    @Override
+                    public void run() throws Exception {
+
+                    }
+                }, new Consumer<Disposable>() {
+                    @Override
+                    public void accept(Disposable disposable) throws Exception {
+                        Log.d("ccy","onSubscribe accept thread = " + Thread.currentThread());
+                    }
                 });
     }
 
     /**
      * doOnSubscribe/doOnNext/doOnError的线程测试2
      */
-    private void doOnSubscribeThreadDemo2(){
+    private void doOnSubscribeThreadDemo2() {
         Observable.create(new ObservableOnSubscribe<String>() {
             @Override
             public void subscribe(@NonNull ObservableEmitter<String> e) throws Exception {
@@ -489,7 +510,7 @@ public class RxActivity extends BaseActivity {
                 .flatMap(new Function<String, ObservableSource<String>>() {
                     @Override
                     public ObservableSource<String> apply(@NonNull String s) throws Exception {
-                        Log.d("ccy", "flatMap thread = " + Thread.currentThread()+";s = " + s);
+                        Log.d("ccy", "flatMap thread = " + Thread.currentThread() + ";s = " + s);
 //                        if (s.equals("1")) {
 //                            return Observable.just(s);
 //                        } else {
@@ -500,7 +521,7 @@ public class RxActivity extends BaseActivity {
                     }
                 })
                 .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread(),true)
+                .observeOn(AndroidSchedulers.mainThread(), true)
                 .doOnError(new Consumer<Throwable>() {
                     @Override
                     public void accept(Throwable throwable) throws Exception {
@@ -536,7 +557,6 @@ public class RxActivity extends BaseActivity {
 
                     }
                 });
-
     }
 
 
@@ -591,7 +611,6 @@ public class RxActivity extends BaseActivity {
 
     private void subjectDemo() {
         final PublishSubject<String> subject = PublishSubject.<String>create();
-
         subject
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -640,7 +659,7 @@ public class RxActivity extends BaseActivity {
             @Override
             public Boolean apply(@NonNull String s, @NonNull String s2) throws Exception {
                 Log.d("ccy", "combineLatest thread = " + Thread.currentThread()); //结论：在主线程
-                Log.d("ccy","s1.length = " + s.length() + ";s2.length =" + s2.length());
+                Log.d("ccy", "s1.length = " + s.length() + ";s2.length =" + s2.length());
                 if (
                         (s.length() >= 2 && s.length() <= 4)
                                 && (s2.length() >= 4 && s2.length() <= 8)
@@ -668,22 +687,22 @@ public class RxActivity extends BaseActivity {
 
     //测试flowable水缸一开始就存还是可以经过操作符变化直到即将onNext时存入水缸
     //结论：发射的数据都能经过切换下游线程之前（observeOn）的操作符处理，然后再存入水缸
-    private void flowableCacheDemo(){
+    private void flowableCacheDemo() {
         Flowable.create(new FlowableOnSubscribe<Integer>() {
             @Override
             public void subscribe(@NonNull FlowableEmitter<Integer> e) throws Exception {
                 e.onNext(1);
-                Log.d("ccy","emit 1");
+                Log.d("ccy", "emit 1");
                 e.onNext(2);
-                Log.d("ccy","emit 2");
+                Log.d("ccy", "emit 2");
             }
         }, BackpressureStrategy.ERROR)
                 .map(new Function<Integer, String>() {
                     @Override
                     public String apply(@NonNull Integer integer) throws Exception {
                         //结论：执行了
-                        Log.d("ccy","map invoked(before observeOn),thread = " + Thread.currentThread().getName());
-                        return ""+integer;
+                        Log.d("ccy", "map invoked(before observeOn),thread = " + Thread.currentThread().getName());
+                        return "" + integer;
                     }
                 })
                 .subscribeOn(Schedulers.io())
@@ -691,8 +710,8 @@ public class RxActivity extends BaseActivity {
                     @Override
                     public String apply(@NonNull String s) throws Exception {
                         //结论：执行了
-                        Log.d("ccy","map invoked(after subscribeOn but before observeOn),thread = " + Thread.currentThread().getName());
-                        return ""+s;
+                        Log.d("ccy", "map invoked(after subscribeOn but before observeOn),thread = " + Thread.currentThread().getName());
+                        return "" + s;
                     }
                 })
                 .observeOn(AndroidSchedulers.mainThread())
@@ -700,15 +719,15 @@ public class RxActivity extends BaseActivity {
                     @Override
                     public String apply(@NonNull String s) throws Exception {
                         //结论：未执行
-                        Log.d("ccy","map invoked(after observeOn),thread = " + Thread.currentThread().getName());
-                        return ""+s;
+                        Log.d("ccy", "map invoked(after observeOn),thread = " + Thread.currentThread().getName());
+                        return "" + s;
                     }
                 })
                 .doOnNext(new Consumer<String>() {
                     @Override
                     public void accept(String s) throws Exception {
                         //结论：未执行
-                        Log.d("ccy","doOnNext invoked(after observeOn),thread = " + Thread.currentThread().getName());
+                        Log.d("ccy", "doOnNext invoked(after observeOn),thread = " + Thread.currentThread().getName());
                     }
                 })
                 .subscribe(new Subscriber<String>() {
@@ -736,7 +755,6 @@ public class RxActivity extends BaseActivity {
     }
 
 
-
     class MyTextWatcher implements TextWatcher {
         private Subject<String> subject;
 
@@ -758,6 +776,11 @@ public class RxActivity extends BaseActivity {
         public void afterTextChanged(Editable s) {
             subject.onNext(s.toString());
         }
+    }
+
+
+    private void subjectErrorDemo() {
+
     }
 
 

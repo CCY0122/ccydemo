@@ -50,11 +50,11 @@
             android:orientation="horizontal"
             android:padding="20dp">
 
-            <ImageView
+            <pl.droidsonroids.gif.GifImageView
                 android:id="@+id/drag_img_1"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:src="@drawable/rain"
+                android:src="@drawable/mgif"
                 android:background="#44ff0000"
                 android:layout_marginRight="50dp"/>
 

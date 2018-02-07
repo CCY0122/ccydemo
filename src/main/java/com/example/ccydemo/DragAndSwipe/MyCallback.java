@@ -48,6 +48,7 @@ public class MyCallback extends ItemTouchHelper.Callback {
         Log.d("ccy", "onSwiped");
     }
 
+
     @Override
     public boolean isLongPressDragEnabled() {
         return super.isLongPressDragEnabled();
