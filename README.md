@@ -21,3 +21,6 @@
 * RecyclerView之DiffUtil使用
 * View拖动机制DragAndDrop
 * RecyclerView多类型数据布局库：Multitype使用
+
+*2017-11-21 -- 2018-03-16 ：*
+* 若干修改、若干新增
