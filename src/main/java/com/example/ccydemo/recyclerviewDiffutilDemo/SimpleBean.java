@@ -16,6 +16,7 @@ public class SimpleBean {
 
 
 
+    public SimpleBean(){}
     public SimpleBean(int id, String text, String subText, int icon) {
         this.id = id;
         this.text = text;

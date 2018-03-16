@@ -31,17 +31,19 @@ android {
             signingConfig signingConfigs.ccy
         }
         ccy {
+            applicationIdSuffix ".ccy"
             signingConfig signingConfigs.ccy
         }
     }
 
 
-    productFlavors{
-        p1{
-            manifestPlaceholders=[CHANNEL_VALUES:"PRODUCT1"]
+    productFlavors {
+        p1 {
+            manifestPlaceholders = [CHANNEL_VALUES: "PRODUCT1"]
+            minSdkVersion 21
         }
-        p2{
-            manifestPlaceholders=[CHANNEL_VALUES:"PRODUCT2"]
+        p2 {
+            manifestPlaceholders = [CHANNEL_VALUES: "PRODUCT2"]
         }
     }
 }
@@ -71,9 +73,15 @@ dependencies {
     compile 'org.greenrobot:eventbus:3.0.0'
     compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
     compile 'io.reactivex.rxjava2:rxjava:2.1.3'
-    compile ('me.drakeet.multitype:multitype:3.4.0',{
+    compile('me.drakeet.multitype:multitype:3.4.0', {
         exclude group: 'com.android.support'
     })
+    compile 'pl.droidsonroids.gif:android-gif-drawable:1.2.8'
+    compile project(':rectloadingview')
+    compile project(':rollerradiogroup')
+    compile 'com.r0adkll:slidableactivity:2.0.6'
+    compile project(':miuiweatherline')
+    compile files('libs/sdk.jar')
 }
 task makeJar(type:Jar){
     delete 'libs/sdk.jar'

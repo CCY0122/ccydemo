@@ -1,5 +1,8 @@
 package com.example.ccydemo.RxjavaDemo;
 
+import android.content.Context;
+import android.content.Intent;
+import android.graphics.Bitmap;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.SystemClock;
@@ -7,6 +10,7 @@ import android.support.annotation.Nullable;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.util.Size;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,9 +22,16 @@ import android.widget.Toast;
 
 import com.example.ccydemo.BaseActivity;
 import com.example.ccydemo.R;
+import com.example.ccydemo.RecyclerViewHeader.Bean;
 
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -34,6 +45,7 @@ import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
 import io.reactivex.ObservableSource;
 import io.reactivex.Observer;
+import io.reactivex.SingleObserver;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.annotations.NonNull;
 import io.reactivex.disposables.Disposable;
@@ -41,6 +53,7 @@ import io.reactivex.functions.Action;
 import io.reactivex.functions.BiFunction;
 import io.reactivex.functions.Consumer;
 import io.reactivex.functions.Function;
+import io.reactivex.functions.Predicate;
 import io.reactivex.schedulers.Schedulers;
 import io.reactivex.subjects.PublishSubject;
 import io.reactivex.subjects.Subject;
@@ -48,9 +61,9 @@ import io.reactivex.subjects.Subject;
 /**
  * Created by ccy on 2017-09-22.
  */
-
 public class RxActivity extends BaseActivity {
 
+    private static final String TAG = "ccy";
     @BindView(R.id.rx_et1)
     EditText et1;
     @BindView(R.id.rx_et2)
@@ -72,11 +85,7 @@ public class RxActivity extends BaseActivity {
         et1.addTextChangedListener(new MyTextWatcher(s1));
         et2.addTextChangedListener(new MyTextWatcher(s2));
         combineLatestDemo(s1, s2);
-
-
-        doOnSubscribeThreadDemo();
-
-//        doOnSubscribeThreadDemo2();
+//        doOnSubscribeThreadDemo();//        doOnSubscribeThreadDemo2();
 
 //        flowableCacheDemo();
 
@@ -84,7 +93,10 @@ public class RxActivity extends BaseActivity {
 //        map1();
 
 //        subjectErrorDemo();
+
+        nullValueDemo();
     }
+
 
 
     @OnClick(R.id.rx_btn)
@@ -593,7 +605,7 @@ public class RxActivity extends BaseActivity {
                         });
                     }
                 })
-                .subscribeOn(Schedulers.newThread())
+                .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Consumer<String>() {
                     @Override
@@ -610,6 +622,7 @@ public class RxActivity extends BaseActivity {
     }
 
     private void subjectDemo() {
+
         final PublishSubject<String> subject = PublishSubject.<String>create();
         subject
                 .subscribeOn(Schedulers.newThread())
@@ -752,6 +765,94 @@ public class RxActivity extends BaseActivity {
 
                     }
                 });
+    }
+
+    private void  nullValueDemo(){
+//        Bean b = new Bean();
+//        Observable<List<Bean>> o1 = Observable.just(b)
+//                .filter(new Predicate<Bean>() {
+//                    @Override
+//                    public boolean test(Bean bean) throws Exception {
+//                        return false;
+//                    }
+//                })
+//                .toList()
+//                .toObservable();
+//        Bean c = new Bean();
+//        Observable<Bean> o2 = Observable.just(c);
+//
+//        Observable.zip(o1, o2, new BiFunction<List<Bean>, Bean, Object>() {
+//            @Override
+//            public Object apply(List<Bean> bean, Bean bean2) throws Exception {
+//                //结论 bean instanceof ArrayList
+//                Log.d("ccy","bean size = " +bean.size() + ";" +(bean instanceof ArrayList) +";" + (bean instanceof LinkedList));
+//                Log.d("ccy","o1 = " + (bean == null) + ";o2 = " + (bean2 == null));
+//                return 1;
+//            }
+//        }).subscribe(new Observer<Object>() {
+//            @Override
+//            public void onSubscribe(Disposable d) {
+//                Log.d(TAG, "onSubscribe() called with: d = [" + d + "]");
+//            }
+//
+//            @Override
+//            public void onNext(Object o) {
+//                Log.d(TAG, "onNext() called with: o = [" + o + "]");
+//            }
+//
+//            @Override
+//            public void onError(Throwable e) {
+//                Log.d(TAG, "onError() called with: e = [" + e + "]");
+//            }
+//
+//            @Override
+//            public void onComplete() {
+//                Log.d(TAG, "onComplete() called");
+//            }
+//        });
+
+        Observable.create(new ObservableOnSubscribe<List<Bean>>() {
+            @Override
+            public void subscribe(ObservableEmitter<List<Bean>> e) throws Exception {
+                List<Bean> ll = new ArrayList<>();
+//                ll.add(new Bean());
+                e.onNext(ll);
+                List<Bean> l = new ArrayList<>();
+                e.onNext(l);
+                e.onComplete();
+            }
+        })
+               .<Bean>flatMap(new Function<List<Bean>, ObservableSource<? extends Bean>>() {
+                   @Override
+                   public ObservableSource<? extends Bean> apply(List<Bean> beans) throws Exception {
+                       Log.d("ccy","flat map = " + beans.size());
+                       return Observable.fromIterable(beans);
+                   }
+               })
+                .toList()
+                .toObservable()
+                .subscribe(new Observer<List<Bean>>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+                        Log.d("ccy","onSubscribe");
+                    }
+
+                    @Override
+                    public void onNext(List<Bean> beans) {
+                        Log.d("ccy","size = " + beans.size());
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        Log.d("ccy","e = " + e.toString());
+                    }
+
+                    @Override
+                    public void onComplete() {
+                        Log.d("ccy","com" );
+                    }
+                });
+
     }
 
 

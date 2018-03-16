@@ -56,6 +56,10 @@ public class CustomFragment extends Fragment {
         Log.d(TAG,"oncreate" + id);
     }
 
+    public int getmId() {
+        return id;
+    }
+
     @Override
     public void onStart() {
         super.onStart();
@@ -91,6 +95,7 @@ public class CustomFragment extends Fragment {
     @OnClick(R.id.b1)
     public void b1(){
         EventBus.getDefault().postSticky(new CustomBean(1,"post event to another frg from " + msg));
+        getFragmentManager().beginTransaction().remove(this).commit();
     }
 
 

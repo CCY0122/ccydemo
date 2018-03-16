@@ -24,9 +24,12 @@ import okhttp3.Cache;
 import okhttp3.CacheControl;
 import okhttp3.Call;
 import okhttp3.Callback;
+import okhttp3.FormBody;
 import okhttp3.Interceptor;
+import okhttp3.MultipartBody;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
+import okhttp3.RequestBody;
 import okhttp3.Response;
 import okhttp3.logging.HttpLoggingInterceptor;
 
@@ -85,7 +88,6 @@ public class OkhttpActivity extends BaseActivity {
             }
         });
         client = builder.build();
-
     }
 
     @OnClick(R.id.okhttp_b1)
@@ -107,10 +109,12 @@ public class OkhttpActivity extends BaseActivity {
             public void onResponse(Call call, Response response) throws IOException {
                 if (response.isSuccessful()) {
                     print("请求成功");
-                } else if (response.cacheResponse() != null) {
+                }
+                if (response.cacheResponse() != null) {
                     print("获取缓存");
-                } else {
-                    print("请求失败：" + response.code());
+                }
+                if (response.networkResponse() != null) {
+                    print("获取网络");
                 }
             }
         });

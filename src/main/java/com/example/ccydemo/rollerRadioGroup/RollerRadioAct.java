@@ -26,6 +26,7 @@ import ccy.rollerradiogroup.RollerRadioGroup;
 public class RollerRadioAct extends BaseActivity {
 
     private RollerRadioGroup rrg;
+    private RollerRadioGroup rrg2;
     private Button b1;
     private TextView t1;
     private TextView t2;
@@ -35,6 +36,7 @@ public class RollerRadioAct extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.roller_act);
         rrg = (RollerRadioGroup) findViewById(R.id.rrg1);
+        rrg2 = (RollerRadioGroup) findViewById(R.id.rrg2);
         List<String> texts = new ArrayList<>();
         texts.add("123");
         texts.add("测试");
@@ -52,6 +54,7 @@ public class RollerRadioAct extends BaseActivity {
         texts.add("一二");
 
         rrg.setData(texts, texts.size() - 1);
+        rrg2.setData(texts);
 
         Button b1 = (Button) findViewById(R.id.b1);
         b1.setOnClickListener(new View.OnClickListener() {

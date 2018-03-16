@@ -8,11 +8,11 @@
     </facet>
     <facet type="android" name="Android">
       <configuration>
-        <option name="SELECTED_BUILD_VARIANT" value="p2Debug" />
-        <option name="ASSEMBLE_TASK_NAME" value="assembleP2Debug" />
-        <option name="COMPILE_JAVA_TASK_NAME" value="compileP2DebugSources" />
+        <option name="SELECTED_BUILD_VARIANT" value="p1Debug" />
+        <option name="ASSEMBLE_TASK_NAME" value="assembleP1Debug" />
+        <option name="COMPILE_JAVA_TASK_NAME" value="compileP1DebugSources" />
         <afterSyncTasks>
-          <task>generateP2DebugSources</task>
+          <task>generateP1DebugSources</task>
         </afterSyncTasks>
         <option name="ALLOW_USER_CONFIGURATION" value="false" />
         <option name="MANIFEST_FILE_RELATIVE_PATH" value="/src/main/AndroidManifest.xml" />
@@ -23,59 +23,59 @@
     </facet>
   </component>
   <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_7">
-    <output url="file://$MODULE_DIR$/build/intermediates/classes/p2/debug" />
-    <output-test url="file://$MODULE_DIR$/build/intermediates/classes/test/p2/debug" />
+    <output url="file://$MODULE_DIR$/build/intermediates/classes/p1/debug" />
+    <output-test url="file://$MODULE_DIR$/build/intermediates/classes/test/p1/debug" />
     <exclude-output />
     <content url="file://$MODULE_DIR$">
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/r/p2/debug" isTestSource="false" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/aidl/p2/debug" isTestSource="false" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/buildConfig/p2/debug" isTestSource="false" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/rs/p2/debug" isTestSource="false" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/apt/p2/debug" isTestSource="false" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/res/rs/p2/debug" type="java-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/res/resValues/p2/debug" type="java-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/p2Debug/res" type="java-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/p2Debug/resources" type="java-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/p2Debug/assets" type="java-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/p2Debug/aidl" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/p2Debug/java" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/p2Debug/rs" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/p2Debug/shaders" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/r/androidTest/p2/debug" isTestSource="true" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/aidl/androidTest/p2/debug" isTestSource="true" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/buildConfig/androidTest/p2/debug" isTestSource="true" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/rs/androidTest/p2/debug" isTestSource="true" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/apt/androidTest/p2/debug" isTestSource="true" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/res/rs/androidTest/p2/debug" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/res/resValues/androidTest/p2/debug" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testP2Debug/res" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testP2Debug/resources" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testP2Debug/assets" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testP2Debug/aidl" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testP2Debug/java" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testP2Debug/rs" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testP2Debug/shaders" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/p2/res" type="java-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/p2/resources" type="java-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/p2/assets" type="java-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/p2/aidl" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/p2/java" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/p2/rs" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/p2/shaders" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testP2/res" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testP2/resources" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testP2/assets" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testP2/aidl" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testP2/java" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testP2/rs" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testP2/shaders" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTestP2/res" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTestP2/resources" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTestP2/assets" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTestP2/aidl" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTestP2/java" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTestP2/rs" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/androidTestP2/shaders" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/r/p1/debug" isTestSource="false" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/aidl/p1/debug" isTestSource="false" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/buildConfig/p1/debug" isTestSource="false" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/rs/p1/debug" isTestSource="false" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/apt/p1/debug" isTestSource="false" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/res/rs/p1/debug" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/res/resValues/p1/debug" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/p1Debug/res" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/p1Debug/resources" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/p1Debug/assets" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/p1Debug/aidl" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/p1Debug/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/p1Debug/rs" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/p1Debug/shaders" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/r/androidTest/p1/debug" isTestSource="true" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/aidl/androidTest/p1/debug" isTestSource="true" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/buildConfig/androidTest/p1/debug" isTestSource="true" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/rs/androidTest/p1/debug" isTestSource="true" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/apt/androidTest/p1/debug" isTestSource="true" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/res/rs/androidTest/p1/debug" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/res/resValues/androidTest/p1/debug" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testP1Debug/res" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testP1Debug/resources" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testP1Debug/assets" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testP1Debug/aidl" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testP1Debug/java" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testP1Debug/rs" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testP1Debug/shaders" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/p1/res" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/p1/resources" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/p1/assets" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/p1/aidl" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/p1/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/p1/rs" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/p1/shaders" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testP1/res" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testP1/resources" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testP1/assets" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testP1/aidl" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testP1/java" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testP1/rs" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testP1/shaders" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTestP1/res" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTestP1/resources" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTestP1/assets" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTestP1/aidl" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTestP1/java" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTestP1/rs" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTestP1/shaders" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/debug/res" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/debug/resources" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/debug/assets" type="java-resource" />
@@ -139,48 +139,60 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" name="com.squareup.retrofit2:converter-gson:2.3.0@jar" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="com.android.support.test:exposed-instrumentation-api-publish-0.5" level="project" />
-    <orderEntry type="library" exported="" name="q.rorbin:badgeview-1.0.6" level="project" />
-    <orderEntry type="library" exported="" scope="TEST" name="junit:junit:4.12@jar" level="project" />
     <orderEntry type="library" exported="" name="com.android.support:cardview-v7-25.1.0" level="project" />
     <orderEntry type="library" exported="" name="com.github.chrisbanes.photoview:library-1.2.4" level="project" />
-    <orderEntry type="library" exported="" name="com.android.support:support-core-ui-25.1.0" level="project" />
-    <orderEntry type="library" exported="" scope="TEST" name="javax.inject:javax.inject:1@jar" level="project" />
+    <orderEntry type="library" exported="" name="com.android.support:support-core-ui-25.3.1" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="com.squareup:javawriter:2.1.1@jar" level="project" />
-    <orderEntry type="library" exported="" name="com.baoyz.swipemenulistview:library-1.3.0" level="project" />
-    <orderEntry type="library" exported="" name="com.android.support:support-media-compat-25.1.0" level="project" />
+    <orderEntry type="library" exported="" name="com.android.support:support-compat-25.3.1" level="project" />
     <orderEntry type="library" exported="" name="org.reactivestreams:reactive-streams:1.0.1@jar" level="project" />
-    <orderEntry type="library" exported="" name="com.google.code.gson:gson:2.7@jar" level="project" />
-    <orderEntry type="library" exported="" name="com.android.support:support-annotations:25.1.0@jar" level="project" />
-    <orderEntry type="library" exported="" name="com.squareup.okio:okio:1.13.0@jar" level="project" />
-    <orderEntry type="library" exported="" name="com.android.support:support-v4-25.1.0" level="project" />
-    <orderEntry type="library" exported="" name="com.squareup.retrofit2:retrofit:2.3.0@jar" level="project" />
-    <orderEntry type="library" exported="" name="com.android.support:support-fragment-25.1.0" level="project" />
+    <orderEntry type="library" exported="" name="com.android.support:support-core-utils-25.3.1" level="project" />
+    <orderEntry type="library" exported="" name="com.android.support:support-v4-25.3.1" level="project" />
+    <orderEntry type="library" exported="" name="com.android.support:support-fragment-25.4.0" level="project" />
+    <orderEntry type="library" exported="" name="com.android.support:support-media-compat-25.3.1" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="com.google.code.findbugs:jsr305:2.0.1@jar" level="project" />
-    <orderEntry type="library" exported="" name="cn.yipianfengye.android:zxing-library-2.1" level="project" />
     <orderEntry type="library" exported="" name="com.squareup.okhttp3:logging-interceptor:3.5.0@jar" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="org.hamcrest:hamcrest-core:1.3@jar" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="com.android.support.test.espresso:espresso-core-2.2.2" level="project" />
     <orderEntry type="library" exported="" name="com.squareup.okhttp3:okhttp:3.8.0@jar" level="project" />
-    <orderEntry type="library" exported="" name="com.android.support:support-core-utils-25.1.0" level="project" />
-    <orderEntry type="library" exported="" name="io.reactivex.rxjava2:rxandroid-2.0.1" level="project" />
-    <orderEntry type="library" exported="" name="com.android.support:animated-vector-drawable-25.1.0" level="project" />
-    <orderEntry type="library" exported="" name="com.jakewharton:butterknife-8.6.0" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="com.android.support.test:rules-0.5" level="project" />
-    <orderEntry type="library" exported="" name="me.drakeet.multitype:multitype-3.4.0" level="project" />
     <orderEntry type="library" exported="" name="com.android.support:design-25.1.0" level="project" />
-    <orderEntry type="library" exported="" scope="TEST" name="org.hamcrest:hamcrest-library:1.3@jar" level="project" />
-    <orderEntry type="library" exported="" name="com.android.support:appcompat-v7-25.1.0" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="org.hamcrest:hamcrest-integration:1.3@jar" level="project" />
     <orderEntry type="library" exported="" name="com.android.support:transition-25.1.0" level="project" />
-    <orderEntry type="library" exported="" scope="TEST" name="com.android.support.test:runner-0.5" level="project" />
-    <orderEntry type="library" exported="" name="com.android.support:support-compat-25.1.0" level="project" />
+    <orderEntry type="library" exported="" name="pl.droidsonroids.gif:android-gif-drawable-1.2.8" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="com.android.support.test.espresso:espresso-idling-resource-2.2.2" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="javax.annotation:javax.annotation-api:1.2@jar" level="project" />
     <orderEntry type="library" exported="" name="org.greenrobot:eventbus:3.0.0@jar" level="project" />
     <orderEntry type="library" exported="" name="com.android.support:recyclerview-v7-25.1.0" level="project" />
+    <orderEntry type="library" exported="" name="com.android.support:support-vector-drawable-25.3.1" level="project" />
+    <orderEntry type="library" exported="" name="q.rorbin:badgeview-1.0.6" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="junit:junit:4.12@jar" level="project" />
+    <orderEntry type="library" exported="" name="com.r0adkll:slidableactivity-2.0.6" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="javax.inject:javax.inject:1@jar" level="project" />
+    <orderEntry type="library" exported="" name="com.android.support:support-core-ui-25.4.0" level="project" />
+    <orderEntry type="library" exported="" name="com.android.support:support-compat-25.4.0" level="project" />
+    <orderEntry type="library" exported="" name="com.baoyz.swipemenulistview:library-1.3.0" level="project" />
+    <orderEntry type="library" exported="" name="com.android.support:support-annotations:25.4.0@jar" level="project" />
+    <orderEntry type="library" exported="" name="com.android.support:support-core-utils-25.4.0" level="project" />
+    <orderEntry type="library" exported="" name="com.google.code.gson:gson:2.7@jar" level="project" />
+    <orderEntry type="library" exported="" name="com.squareup.okio:okio:1.13.0@jar" level="project" />
+    <orderEntry type="library" exported="" name="com.android.support:support-v4-25.4.0" level="project" />
+    <orderEntry type="library" exported="" name="com.android.support:support-fragment-25.3.1" level="project" />
+    <orderEntry type="library" exported="" name="com.squareup.retrofit2:retrofit:2.3.0@jar" level="project" />
+    <orderEntry type="library" exported="" name="com.android.support:support-media-compat-25.4.0" level="project" />
+    <orderEntry type="library" exported="" name="cn.yipianfengye.android:zxing-library-2.1" level="project" />
+    <orderEntry type="library" exported="" name="com.android.support:animated-vector-drawable-25.3.1" level="project" />
+    <orderEntry type="library" exported="" name="io.reactivex.rxjava2:rxandroid-2.0.1" level="project" />
+    <orderEntry type="library" exported="" name="com.jakewharton:butterknife-8.6.0" level="project" />
+    <orderEntry type="library" exported="" name="me.drakeet.multitype:multitype-3.4.0" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="org.hamcrest:hamcrest-library:1.3@jar" level="project" />
+    <orderEntry type="library" exported="" name="__local_jars__:D.\AS_pro_1\ccydemo\libs\sdk.jar:unspecified@jar" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="com.android.support.test:runner-0.5" level="project" />
+    <orderEntry type="library" exported="" name="com.android.support:appcompat-v7-25.3.1" level="project" />
     <orderEntry type="library" exported="" name="com.jakewharton:butterknife-annotations:8.6.0@jar" level="project" />
     <orderEntry type="library" exported="" name="io.reactivex.rxjava2:rxjava:2.1.3@jar" level="project" />
-    <orderEntry type="library" exported="" name="com.android.support:support-vector-drawable-25.1.0" level="project" />
     <orderEntry type="library" exported="" name="com.github.bumptech.glide:glide:3.7.0@jar" level="project" />
+    <orderEntry type="module" module-name="rollerradiogroup" exported="" />
+    <orderEntry type="module" module-name="miuiweatherline" exported="" />
+    <orderEntry type="module" module-name="rectloadingview" exported="" />
   </component>
 </module>

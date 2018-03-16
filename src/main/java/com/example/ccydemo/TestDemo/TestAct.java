@@ -1,18 +1,36 @@
 package com.example.ccydemo.TestDemo;
 
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.graphics.drawable.AnimationDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v4.view.PagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.PopupMenu;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.ccydemo.BaseActivity;
+import com.example.ccydemo.EventBusDemo.CustomFragment;
 import com.example.ccydemo.R;
+import com.example.ccydemo.recyclerviewDiffutilDemo.SimpleBean;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -23,10 +41,16 @@ import butterknife.OnClick;
 
 public class TestAct extends BaseActivity {
 
-    //TODO:1、如何保持dialogfragment悬浮感 对应哪个style？2、bottomSheet 3、其他地方使用Menu xml 创建菜单方法 4、改造现在UI库里的NumberPicker
 
     DialogTest d;
-    String[] s = {"1","2"};
+    String[] s = {"1", "2"};
+    IndicatorView indicatorView;
+    ViewPager vp;
+    String[] vps = {"123", "s", "qweqw", "哈哈常常长长长"};
+    List<View> views = new ArrayList<>();
+    PasswordView pwdv;
+    TextView pwdt;
+    private ImageView img;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -34,13 +58,104 @@ public class TestAct extends BaseActivity {
         setContentView(R.layout.test_act);
         ButterKnife.bind(this);
         d = new DialogTest();
+        indicatorView = (IndicatorView) findViewById(R.id.indicator);
+        vp = (ViewPager) findViewById(R.id.vp);
+        for (int i = 0; i < vps.length; i++) {
+            TextView tv = new TextView(this);
+            tv.setText(vps[i]);
+            tv.setGravity(Gravity.CENTER);
+            views.add(tv);
+        }
+        vp.setAdapter(new PagerAdapter() {
+            @Override
+            public int getCount() {
+                return views.size();
+            }
+
+            @Override
+            public boolean isViewFromObject(View view, Object object) {
+                return view == object;
+            }
+
+            @Override
+            public Object instantiateItem(ViewGroup container, int position) {
+                container.addView(views.get(position), ViewPager.LayoutParams.MATCH_PARENT, ViewPager.LayoutParams.MATCH_PARENT);
+                return views.get(position);
+            }
+
+            @Override
+            public void destroyItem(ViewGroup container, int position, Object object) {
+                container.removeView(views.get(position));
+            }
+
+            @Override
+            public CharSequence getPageTitle(int position) {
+                return vps[position];
+            }
+
+        });
+        indicatorView.setupWithViewPager(vp);
+
+
+        List<SimpleBean> b1 = new ArrayList<>();
+        for (int i = 0; i < 5; i++) {
+            SimpleBean bean1 = new SimpleBean();
+            bean1.id = (int) (Math.random() * 10);
+            bean1.text = "123";
+            b1.add(bean1);
+        }
+        List<SimpleBean> b2 = new ArrayList<>(b1);
+        SimpleBean bean2 = new SimpleBean();
+        bean2.id = -1;
+        bean2.text = "123";
+        b2.add(bean2);
+        Log.d("ccy", "b1 = " + b1.size() + ";b2 = " + b2.size());
+        Collections.sort(b2, new Comparator<SimpleBean>() {
+            @Override
+            public int compare(SimpleBean o1, SimpleBean o2) {
+                if (o1.id > o2.id) {
+                    return 1;
+                } else if (o1.id == o2.id) {
+                    return 0;
+                } else {
+                    return -1;
+                }
+            }
+        });
+
+        pwdv = (PasswordView) findViewById(R.id.pwdv);
+        pwdt = (TextView) findViewById(R.id.pwdt);
+        pwdv.setPasswordListener(new PasswordView.PasswordListener() {
+            @Override
+            public void passwordChange(String changeText) {
+                pwdt.setText(changeText);
+            }
+
+            @Override
+            public void passwordComplete() {
+                Toast.makeText(TestAct.this, "complete", Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            public void keyEnterPress(String password, boolean isComplete) {
+                Toast.makeText(TestAct.this, ("pwd = " + password + ";is complete = " + isComplete), Toast.LENGTH_LONG).show();
+            }
+        });
+
+        img = (ImageView) findViewById(R.id.b1);
+        img.setEnabled(false);
+    }
+
+    @Override
+    protected void onResumeFragments() {
+        super.onResumeFragments();
     }
 
     @OnClick(R.id.b1)
-    void openDialog(View v){
-        d.show(getSupportFragmentManager(),"1");
+    void openDialog(View v) {
+        d.show(getSupportFragmentManager(), "1");
 //        AlertDialog.Builder builder = new AlertDialog.Builder(this,R.style.baseDialog);
-//        builder.setView(R.layout.test_dialog_frag);
+//        builder.setView(R.layout.rv_item);
 //        builder.show();
 //        PopupMenu popupMenu = new PopupMenu(this,v);
 //        popupMenu.getMenuInflater().inflate(R.menu.test_menu,popupMenu.getMenu());
@@ -52,7 +167,47 @@ public class TestAct extends BaseActivity {
 //            }
 //        });
 //        popupMenu.show();
+        pwdv.setPassword("123456");
     }
 
+    private CustomFragment f1 = CustomFragment.getInstance(1,"123");
+    private CustomFragment f2 = CustomFragment.getInstance(2,"asd");
+    @OnClick(R.id.add1)
+    public void add1() {
+        FragmentManager fm = getSupportFragmentManager();
+        CustomFragment cf = (CustomFragment) fm.findFragmentByTag("custom");
+        Log.d("ccy", "add 1 = " + (cf == null ? "null" : cf.getmId()));
+        if (cf == null) {
+            Log.d("ccy","f1 = null");
+        }
+        fm.beginTransaction().replace(R.id.fragment_container, f1, "custom").commit();
+    }
 
+    @OnClick(R.id.add2)
+    public void add2() {
+        FragmentManager fm = getSupportFragmentManager();
+        FragmentTransaction ft = fm.beginTransaction();
+        ft.setCustomAnimations(R.anim.anim_in,R.anim.anim_out);
+        CustomFragment cf = (CustomFragment) fm.findFragmentByTag("custom2");
+        if(cf == null){
+            Log.d("ccy","f2 = null");
+        }
+        fm.beginTransaction().replace(R.id.fragment_container, f2, "custom2").commit();
+//        CustomFragment testF = (CustomFragment) fm.findFragmentById(R.id.fragment_container);
+//        Log.d("ccy","test f = " + (testF == null ? " null" : testF.getmId())); //结论，返回最顶端的fragment（hide()仍是顶端，所以每次都返回custom2)
+//        Log.d("ccy", "add 2 = " + (cf == null ? "null" : cf.getmId()));
+//        if (cf == null) {
+//            cf = CustomFragment.getInstance(2, "324");
+//            ft.add(R.id.fragment_container, cf, "custom2");
+//            Log.d("ccy","add f2");
+//        }else {
+//            if(cf.isHidden()){
+//                ft.show(cf);
+//            }else {
+//                ft.hide(cf);
+//            }
+//        }
+//        ft.commit();
+    }
 }
+

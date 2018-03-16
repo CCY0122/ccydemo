@@ -1,8 +1,11 @@
 package com.example.ccydemo.RecyclerViewHeader;
 
 import android.content.Context;
+import android.support.annotation.Nullable;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.AttributeSet;
+import android.util.Log;
 import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.ccydemo.R;
 
 import java.util.List;
@@ -19,7 +23,7 @@ import java.util.List;
  * Created by XMuser on 2017-06-20.
  */
 
-public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHolder> {
+public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private static final int TYPE_HEADER = 0XFFFF;
     private Context context;
@@ -55,11 +59,10 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
     }
 
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         if(viewType == TYPE_HEADER){
             TextView tv = new TextView(context);
-            tv.setTag(TYPE_HEADER);
-            return new ViewHolder(tv);
+            return new ViewHolderHeader(tv);
         }else {
             View v = layoutInflater.inflate(R.layout.recycler_view_header_item,parent,false);
             return new ViewHolder(v);
@@ -67,15 +70,22 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
+    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+        long t = System.currentTimeMillis();
         if(getItemViewType(position) == TYPE_HEADER){
             TextView tv = (TextView) holder.itemView;
             tv.setText(data.get(position).date);
         }else{
-            ImageView iv = (ImageView) holder.itemView;
-            iv.setImageResource(data.get(position).resId);
+            ViewHolder v = (ViewHolder) holder;
+//            iv.setImageResource(data.get(position).resId);
+            Glide.with(v.img.getContext())
+                    .load(data.get(position).resId)
+                    .into(v.img);
+            v.check.setImageResource(data.get(position).checked ? R.drawable.sun : R.drawable.snow);
         }
+        Log.d("ccy","time = " + (System.currentTimeMillis() - t));
     }
+
 
     @Override
     public int getItemCount() {
@@ -102,15 +112,28 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {
+        ImageView img;
+        ImageView check;
         public ViewHolder(View itemView) {
             super(itemView);
-            int tag = itemView.getTag() == null?-1:(int) itemView.getTag();
-            if(tag == TYPE_HEADER){
-                TextView tv = (TextView) itemView;
-                //处理header...
-            }else {
-                //处理普通...
-            }
+            img = (ImageView) itemView.findViewById(R.id.img);
+            check = (ImageView) itemView.findViewById(R.id.checked);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    data.get(getAdapterPosition()).checked = !data.get(getAdapterPosition()).checked;
+                    check.setImageResource(data.get(getAdapterPosition()).checked ? R.drawable.sun : R.drawable.snow);
+//                    notifyItemChanged(getAdapterPosition());
+//                    notifyDataSetChanged();
+                }
+            });
         }
     }
+    class ViewHolderHeader extends RecyclerView.ViewHolder {
+        public ViewHolderHeader(View itemView) {
+            super(itemView);
+            //nothing
+        }
+    }
+
 }

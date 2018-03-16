@@ -10,11 +10,21 @@
         android:layout_height="wrap_content" />
     <ccy.rollerradiogroup.RollerRadioGroup
         android:layout_width="300dp"
-        android:layout_height="wrap_content"
+        android:layout_height="30dp"
         android:id="@+id/rrg1"
         app:normal_color="@color/grgray"
         app:show_edge_line="false"
         app:auto_selected="false"/>
+
+    <ccy.rollerradiogroup.RollerRadioGroup
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:id="@+id/rrg2"
+        android:layout_marginTop="20dp"
+        app:normal_color="@color/grgray"
+        app:selected_color="#ff0000"
+        app:show_edge_line="true"
+        app:auto_selected="true"/>
     <LinearLayout
         android:id="@+id/ll"
         android:layout_width="match_parent"
@@ -25,7 +35,8 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:text="123123123123123"
-            android:background="#44ff0000" />
+            android:background="#44ff0000"
+            android:visibility="gone"/>
         <TextView
             android:id="@+id/t1"
             android:layout_width="match_parent"
@@ -37,7 +48,8 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:text="123123123123123"
-            android:background="#44ff00ff" />
+            android:background="#44ff00ff"
+            android:visibility="gone"/>
         <TextView
             android:id="@+id/t2"
             android:layout_width="match_parent"

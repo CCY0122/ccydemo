@@ -1,5 +1,6 @@
 package com.example.ccydemo.RetrofitDemo;
 
+import android.accounts.AccountManager;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
@@ -13,12 +14,17 @@ import android.widget.TextView;
 
 import com.example.ccydemo.BaseActivity;
 import com.example.ccydemo.R;
+import com.google.gson.Gson;
 
 import java.io.IOException;
+
+import javax.crypto.spec.IvParameterSpec;
+import javax.net.ssl.HostnameVerifier;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import okhttp3.FormBody;
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
 import okhttp3.OkHttpClient;
@@ -62,7 +68,6 @@ public class RetrofitActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.retrofit_act);
         ButterKnife.bind(this);
-
         initLogOkHttp();
         retrofit = new Retrofit.Builder()
                 .baseUrl(BASE_URL)
@@ -70,7 +75,6 @@ public class RetrofitActivity extends BaseActivity {
                 .client(client)
                 .build();
         movieServiceApi= retrofit.create(MovieServiceApi.class);
-
     }
 
     private void initLogOkHttp() {
@@ -81,6 +85,7 @@ public class RetrofitActivity extends BaseActivity {
                 responseSb.append(message+"\n");
             }
         });
+
         logInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
         client = new OkHttpClient.Builder()
                 .addInterceptor(logInterceptor)
