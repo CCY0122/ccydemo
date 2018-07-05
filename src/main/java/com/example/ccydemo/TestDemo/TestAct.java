@@ -170,44 +170,5 @@ public class TestAct extends BaseActivity {
         pwdv.setPassword("123456");
     }
 
-    private CustomFragment f1 = CustomFragment.getInstance(1,"123");
-    private CustomFragment f2 = CustomFragment.getInstance(2,"asd");
-    @OnClick(R.id.add1)
-    public void add1() {
-        FragmentManager fm = getSupportFragmentManager();
-        CustomFragment cf = (CustomFragment) fm.findFragmentByTag("custom");
-        Log.d("ccy", "add 1 = " + (cf == null ? "null" : cf.getmId()));
-        if (cf == null) {
-            Log.d("ccy","f1 = null");
-        }
-        fm.beginTransaction().replace(R.id.fragment_container, f1, "custom").commit();
-    }
-
-    @OnClick(R.id.add2)
-    public void add2() {
-        FragmentManager fm = getSupportFragmentManager();
-        FragmentTransaction ft = fm.beginTransaction();
-        ft.setCustomAnimations(R.anim.anim_in,R.anim.anim_out);
-        CustomFragment cf = (CustomFragment) fm.findFragmentByTag("custom2");
-        if(cf == null){
-            Log.d("ccy","f2 = null");
-        }
-        fm.beginTransaction().replace(R.id.fragment_container, f2, "custom2").commit();
-//        CustomFragment testF = (CustomFragment) fm.findFragmentById(R.id.fragment_container);
-//        Log.d("ccy","test f = " + (testF == null ? " null" : testF.getmId())); //结论，返回最顶端的fragment（hide()仍是顶端，所以每次都返回custom2)
-//        Log.d("ccy", "add 2 = " + (cf == null ? "null" : cf.getmId()));
-//        if (cf == null) {
-//            cf = CustomFragment.getInstance(2, "324");
-//            ft.add(R.id.fragment_container, cf, "custom2");
-//            Log.d("ccy","add f2");
-//        }else {
-//            if(cf.isHidden()){
-//                ft.show(cf);
-//            }else {
-//                ft.hide(cf);
-//            }
-//        }
-//        ft.commit();
-    }
 }
 

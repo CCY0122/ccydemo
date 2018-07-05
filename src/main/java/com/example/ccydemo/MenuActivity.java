@@ -24,12 +24,14 @@ import com.example.ccydemo.dragAndDropDemo.DragAndDropAct;
 import com.example.ccydemo.gifDemo.GifAct;
 import com.example.ccydemo.multiWndForXM.MultiWndAct;
 import com.example.ccydemo.multitypeDemo.MultitypeAct;
+import com.example.ccydemo.nestedscroll.NestedScrollActivity;
 import com.example.ccydemo.okhttpDemo.OkhttpActivity;
 import com.example.ccydemo.rectLoadingView.RectLoadingAct;
 import com.example.ccydemo.recyclerviewDiffutilDemo.DiffUtilAct;
 import com.example.ccydemo.rollerRadioGroup.RollerRadioAct;
 import com.example.ccydemo.sliderDemo.SliderAct1;
 import com.example.ccydemo.videoViewDemo.VideoViewAct;
+import com.example.ccydemo.wavedemo.WaveActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -207,5 +209,14 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
         s(TestAct.class);
     }
 
+    @OnClick(R.id.b25)
+    void b25(){
+        s(WaveActivity.class);
+    }
+
+    @OnClick(R.id.b26)
+    void b26(){
+        s(NestedScrollActivity.class);
+    }
 }
 

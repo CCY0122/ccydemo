@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    app:divider="@drawable/divider">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp">
+
+
+        <com.example.ccydemo.wavedemo.WaveView
+            android:id="@+id/w2"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            app:waveBaseLineY="50dp"
+            app:waveColor="#88ff3333"
+            app:waveCount="1"
+            app:waveDuration="5000"
+            app:waveHeight="17dp" />
+
+        <com.example.ccydemo.wavedemo.WaveView
+            android:id="@+id/w"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            app:waveBaseLineY="50dp"
+            app:waveColor="#ffff3333"
+            app:waveCount="1"
+            app:waveDuration="3000"
+            app:waveHeight="15dp" />
+
+    </FrameLayout>
+
+    <Button
+        android:id="@+id/b1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="开始" />
+
+    <Button
+        android:id="@+id/b2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="停止" />
+
+    <com.example.ccydemo.wavedemo.WaveView
+        android:id="@+id/w3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:waveColor="#aaff0000"
+        app:waveCount="2"
+        app:waveDuration="3000"
+        app:waveHeight="10dp" />
+
+    <com.example.ccydemo.wavedemo.WaveView
+        android:id="@+id/w4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        app:waveColor="#66ffff"
+        app:waveCount="6"
+        app:waveDuration="7000"
+        app:waveHeight="10dp" />
+
+
+</android.support.v7.widget.LinearLayoutCompat>

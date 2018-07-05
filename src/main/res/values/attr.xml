@@ -14,4 +14,12 @@
             <enum name="rect" value="1" />
         </attr>
     </declare-styleable>
+
+    <declare-styleable name="WaveView">
+        <attr name="waveCount" format="integer"/>
+        <attr name="waveHeight" format="dimension"/>
+        <attr name="waveColor" format="color"/>
+        <attr name="waveDuration" format="integer"/>
+        <attr name="waveBaseLineY" format="dimension"/>
+    </declare-styleable>
 </resources>

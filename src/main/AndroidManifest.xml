@@ -16,9 +16,10 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <meta-data
-            android:name="PRODUCT"
-            android:value="${CHANNEL_VALUES}" />
+
+        <!-- <meta-data -->
+        <!-- android:name="PRODUCT" -->
+        <!-- android:value="${CHANNEL_VALUES}" /> -->
 
         <activity android:name=".MenuActivity">
             <intent-filter>
@@ -58,7 +59,7 @@
         <activity
             android:name=".WeatherLineAct"
             android:hardwareAccelerated="false" />
-        <activity android:name=".TestDemo.TestAct"/>
+        <activity android:name=".TestDemo.TestAct" />
 
         <service
             android:name=".AccessibilityDemo.MyAccessibilityService"
@@ -69,11 +70,17 @@
             <intent-filter>
                 <action android:name="android.accessibilityservice.AccessibilityService" />
             </intent-filter>
+
             <meta-data
                 android:name="android.accessibilityservice"
                 android:resource="@xml/my_access" />
         </service>
 
+        <activity
+            android:name=".wavedemo.WaveActivity"
+            android:label="@string/title_activity_wave"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".nestedscroll.NestedScrollActivity"/>
     </application>
 
 </manifest>

@@ -144,6 +144,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Test" />
+        <Button
+            android:id="@+id/b25"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="波浪控件" />
+        <Button
+            android:id="@+id/b26"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="嵌套滚动、behavior" />
 
 
 
