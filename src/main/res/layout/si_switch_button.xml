@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!--si专用switch button layout-->
+    <com.kyleduo.switchbutton.SwitchButton
+        android:id="@+id/si_switch_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:kswAnimationDuration="130"
+        app:kswThumbColor="#ffffff"
+        app:kswBackColor="@color/check_button_back_state"/>
+
+</FrameLayout>

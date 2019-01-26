@@ -14,4 +14,46 @@
             <enum name="rect" value="1" />
         </attr>
     </declare-styleable>
+
+    <declare-styleable name="WaveView">
+        <attr name="waveCount" format="integer" />
+        <attr name="waveHeight" format="dimension" />
+        <attr name="waveColor" format="color" />
+        <attr name="waveDuration" format="integer" />
+        <attr name="waveBaseLineY" format="dimension" />
+    </declare-styleable>
+
+
+    <declare-styleable name="SelectItem">
+        <attr name="title" format="string" />
+        <attr name="hint" format="string" />
+        <attr name="rightText" format="string" />
+
+        <attr name="titleColor" format="reference|color" />
+        <attr name="hintColor" format="reference|color" />
+        <attr name="rightTextColor" format="reference|color" />
+        <attr name="dividerColor" format="color" />
+
+        <attr name="titleSize" format="dimension" />
+        <attr name="hintSize" format="dimension" />
+        <attr name="rightTextSize" format="dimension" />
+
+        <attr name="leftImgSrc" format="reference|color" />
+        <attr name="rightImgSrc" format="reference|color" />
+
+        <attr name="leftImgWidth" format="dimension" />
+        <attr name="leftImgHeight" format="dimension" />
+        <attr name="rightImgWidth" format="dimension" />
+        <attr name="rightImgHeight" format="dimension" />
+
+        <attr name="type" format="enum">
+            <enum name="select" value="0" />
+            <enum name="checkable" value="1" />
+        </attr>
+
+        <attr name="dividerVisiable" format="boolean" />
+        <attr name="dividerMarginStart" format="dimension" />
+        <attr name="dividerMarginEnd" format="dimension" />
+
+    </declare-styleable>
 </resources>

@@ -1,5 +1,7 @@
 package com.example.ccydemo.DragAndSwipe;
 
+import android.app.Service;
+import android.os.Vibrator;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
@@ -23,12 +25,16 @@ public class MyCallback extends ItemTouchHelper.Callback {
     @Override
     public int getMovementFlags(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder) {
         int flag_1 = ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT;
-        int flag = ItemTouchHelper.UP | ItemTouchHelper.DOWN;
-        return makeMovementFlags(flag, flag_1);
+        int flag = ItemTouchHelper.UP | ItemTouchHelper.DOWN | ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT;
+        return makeMovementFlags(flag, 0);
     }
 
     @Override
     public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
+        //fixme 瀑布流拖拽交换位置，与第1个item交换时，列表有无限上移bug
+        if(target.getAdapterPosition() == 0){
+            return false;
+        }
         adapter.onDrag(viewHolder.getAdapterPosition(), target.getAdapterPosition());
         Log.d("ccy", "onMove");
         return true;
@@ -57,12 +63,17 @@ public class MyCallback extends ItemTouchHelper.Callback {
 
     @Override
     public boolean isItemViewSwipeEnabled() {
-        return super.isItemViewSwipeEnabled();
+        return false;
     }
 
     @Override
     public void onSelectedChanged(RecyclerView.ViewHolder viewHolder, int actionState) {
         super.onSelectedChanged(viewHolder, actionState);
+        if(actionState == ItemTouchHelper.ACTION_STATE_DRAG && viewHolder != null && viewHolder.itemView != null){
+            Vibrator vib = (Vibrator) viewHolder.itemView.getContext().getSystemService(Service.VIBRATOR_SERVICE);//震动70毫秒
+            vib.vibrate(70);
+        }
+
         Log.d("ccy","selectdChanged"+"action="+actionState);
     }
 

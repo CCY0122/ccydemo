@@ -1,11 +1,15 @@
 package com.example.ccydemo;
 
+import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.WindowManager;
 
 /**
  * Created by ccy on 2017-09-22.
@@ -22,7 +26,7 @@ public class BaseActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         ActionBar mab = getSupportActionBar();
-        if(mab != null){
+        if (mab != null) {
             mab.setDisplayHomeAsUpEnabled(true);
         }
 
@@ -30,9 +34,9 @@ public class BaseActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if(item.getItemId() == android.R.id.home){
+        if (item.getItemId() == android.R.id.home) {
             finish();
-            return  true;
+            return true;
         }
         return super.onOptionsItemSelected(item);
     }

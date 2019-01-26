@@ -1,29 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
     <ImageView
         android:id="@+id/b1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/m_selector" />
+        android:src="@drawable/m_selector"
+        android:visibility="gone"/>
+
     <TextView
         android:layout_width="50dp"
         android:layout_height="30dp"
+        android:clickable="true"
         android:text="123123"
         android:textColor="@color/state_color"
-        android:clickable="true"/>
+        android:visibility="gone"/>
+
     <com.example.ccydemo.TestDemo.IndicatorView
         android:id="@+id/indicator"
         android:layout_width="300dp"
         android:layout_height="40dp"
-        android:background="@color/grgray"/>
+        android:background="@color/grgray"
+        android:visibility="gone"/>
+
     <android.support.v4.view.ViewPager
         android:id="@+id/vp"
         android:layout_width="match_parent"
-        android:layout_height="50dp"/>
+        android:layout_height="50dp"
+        android:visibility="gone"/>
+
     <com.example.ccydemo.TestDemo.PasswordView
         android:id="@+id/pwdv"
         android:layout_width="wrap_content"
@@ -31,25 +40,43 @@
         android:layout_margin="10dp"
         app:cipherEnable="false"
         app:mode="rect"
-        app:passwordLength="6"/>
+        app:passwordLength="6"
+        android:visibility="gone"/>
+
     <TextView
         android:id="@+id/pwdt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
-    <TextView
-        android:id="@+id/add1"
+
+    <com.douyinloadingview.DYLoadingView
+        android:id="@+id/dyl"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="add 1"/>
-    <TextView
-        android:id="@+id/add2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="add or hide 2"/>
+        android:layout_height="wrap_content" />
+
+    <com.example.ccydemo.TestDemo.TouchViewGroup
+        android:layout_width="360dp"
+        android:layout_height="70dp"
+        android:background="#44ff0000"
+        android:visibility="gone">
+
+        <com.example.ccydemo.TestDemo.TouchView
+            android:layout_width="100dp"
+            android:layout_height="70dp"
+            android:background="#ffffff" />
+    </com.example.ccydemo.TestDemo.TouchViewGroup>
+
     <FrameLayout
-        android:id="@+id/fragment_container"
+        android:layout_width="360mm"
+        android:layout_height="70dp"
+        android:background="#4400ff00"
+        android:visibility="gone"></FrameLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv1"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#44ff0000"/>
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="#44ff0000" />
+
 
 </LinearLayout>

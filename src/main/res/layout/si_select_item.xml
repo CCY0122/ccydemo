@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:background="#ffffff">
+
+    <LinearLayout
+        android:id="@+id/si_layoutRoot"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:minHeight="65dp"
+        android:orientation="horizontal"
+        android:paddingStart="15dp"
+        android:paddingEnd="10dp">
+        <!--paddingEnd还有5dp会在后续内容中用到，用于角标空间-->
+
+        <!--左图片(嵌套一层FrameLayout为角标留出空间）-->
+        <LinearLayout
+            android:id="@+id/si_left_img_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingTop="10dp"
+            android:paddingEnd="10dp"
+            android:paddingBottom="10dp"
+            android:visibility="gone"
+
+            tools:visibility="visible">
+
+            <ImageView
+                android:id="@+id/si_left_img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                tools:layout_height="40dp"
+                tools:layout_width="40dp"
+                tools:src="@drawable/sun" />
+        </LinearLayout>
+
+        <!--中间内容（标题+描述）-->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
+            <!--不统一使用margin的原因是要考虑右上角角标显示空间-->
+            <TextView
+                android:id="@+id/si_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="5dp"
+                android:paddingEnd="5dp"
+                android:paddingBottom="5dp"
+                android:textColor="#000000"
+                android:textSize="14sp"
+
+                tools:text="this is Title" />
+
+            <TextView
+                android:id="@+id/si_hint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingEnd="5dp"
+                android:paddingBottom="5dp"
+                android:textColor="#b1b1b1"
+                android:textSize="12sp"
+                android:visibility="gone"
+
+                tools:text="this is Hint,this is hint,this is Hint,this is hint,this is Hint,this is hint,"
+                tools:visibility="visible" />
+
+        </LinearLayout>
+
+        <!--右侧内容-->
+        <LinearLayout
+            android:id="@+id/si_right_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingStart="5dp">
+
+            <!--不统一使用margin的原因是要考虑右上角角标显示空间-->
+            <TextView
+                android:id="@+id/si_right_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxWidth="130dp"
+                android:paddingTop="5dp"
+                android:paddingEnd="5dp"
+                android:paddingBottom="5dp"
+                android:textColor="#b1b1b1"
+                android:textSize="12sp"
+                android:visibility="gone"
+
+                tools:text="right Text"
+                tools:visibility="visible" />
+
+            <ImageView
+                android:id="@+id/si_right_img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="5dp"
+                android:paddingEnd="5dp"
+                android:paddingBottom="5dp"
+                android:visibility="gone"
+
+                tools:layout_height="26dp"
+                tools:layout_width="14dp"
+                tools:src="@drawable/ic_right"
+                tools:visibility="visible" />
+        </LinearLayout>
+
+        <!--开关控件。性能考虑，需要时才加载布局-->
+        <ViewStub
+            android:id="@+id/checkable_view_stub"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="5dp"
+            android:layout="@layout/si_switch_button" />
+    </LinearLayout>
+
+    <View
+        android:id="@+id/si_divider"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#efefef" />
+
+</LinearLayout>

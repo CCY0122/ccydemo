@@ -10,17 +10,58 @@
         <!--<item name="android:windowIsTranslucent">true</item>-->
         <!--<item name="android:windowBackground">@android:color/transparent</item>-->
     </style>
+
     <style name="in_out_anim">
         <item name="android:windowEnterAnimation">@anim/anim_in</item>
         <item name="android:windowExitAnimation">@anim/anim_out</item>
     </style>
+
     <style name="baseDialog" parent="@android:style/Theme.Dialog">
+        <!--<item name="android:windowNoTitle">true</item>-->
+        <!--<item name="android:windowBackground">@android:color/transparent</item>-->
+        <!--<item name="android:windowIsFloating">true</item>-->
+        <!--<item name="android:backgroundDimEnabled">false</item>-->
+        <!--<item name="android:backgroundDimAmount">0.2</item>-->
+        <!--<item name="android:windowAnimationStyle">@style/in_out_anim</item>-->
+
+        <!--<item name="android:windowNoTitle">true</item>-->
+        <!--<item name="android:windowBackground">@android:color/transparent</item>-->
+        <!--<item name="android:colorBackgroundCacheHint">@null</item>-->
+        <!--<item name="android:windowSoftInputMode">adjustPan</item>-->
+        <!--<item name="android:windowIsFloating">true</item>-->
+
+        <!--<item name="android:windowFrame">@null</item>-->
+        <!--<item name="android:windowIsTranslucent">true</item>-->
+        <!--<item name="android:windowNoTitle">true</item>-->
+        <!--<item name="android:windowIsFloating">true</item>-->
+        <!--<item name="android:background">@android:color/transparent</item>-->
+        <!--<item name="android:windowBackground">@android:color/transparent</item>-->
+
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsTranslucent">true</item>
         <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:background">@android:color/transparent</item>
         <item name="android:windowBackground">@android:color/transparent</item>
-        <item name="android:windowIsFloating">false</item>
-        <item name="android:backgroundDimEnabled">false</item>
-        <item name="android:backgroundDimAmount">0.2</item>
-        <item name="android:windowAnimationStyle">@style/in_out_anim</item>
+        <item name="android:backgroundDimAmount">0.4</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="commonSelectItem">
+        <item name="title">这是标题</item>
+        <item name="hint">这是描述文字啦啦啦</item>
+        <item name="rightText">这是右侧文字</item>
+        <item name="rightImgSrc">@drawable/ic_right</item>
+        <item name="android:background">#ffffff</item>
+        <item name="dividerMarginStart">15dp</item>
     </style>
 
 </resources>

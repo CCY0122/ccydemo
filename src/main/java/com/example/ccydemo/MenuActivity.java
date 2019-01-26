@@ -1,6 +1,10 @@
 package com.example.ccydemo;
 
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.graphics.Color;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.support.annotation.Nullable;
@@ -20,16 +24,22 @@ import com.example.ccydemo.RxjavaDemo.RxActivity;
 import com.example.ccydemo.TestDemo.TestAct;
 import com.example.ccydemo.ViewDragHelper.Act;
 import com.example.ccydemo.ZxingDemo.ZxingByOpen;
+import com.example.ccydemo.brvah.BRVAHActivity;
+import com.example.ccydemo.collapsingtoolbar.CollapsingToolBarActivity;
+import com.example.ccydemo.douyin.DouYinActivity;
 import com.example.ccydemo.dragAndDropDemo.DragAndDropAct;
 import com.example.ccydemo.gifDemo.GifAct;
 import com.example.ccydemo.multiWndForXM.MultiWndAct;
 import com.example.ccydemo.multitypeDemo.MultitypeAct;
+import com.example.ccydemo.nestedscroll.NestedScrollActivity;
 import com.example.ccydemo.okhttpDemo.OkhttpActivity;
 import com.example.ccydemo.rectLoadingView.RectLoadingAct;
 import com.example.ccydemo.recyclerviewDiffutilDemo.DiffUtilAct;
 import com.example.ccydemo.rollerRadioGroup.RollerRadioAct;
+import com.example.ccydemo.selectitem.SelectItemActivity;
 import com.example.ccydemo.sliderDemo.SliderAct1;
 import com.example.ccydemo.videoViewDemo.VideoViewAct;
+import com.example.ccydemo.wavedemo.WaveActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -62,6 +72,15 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.menu_activity);
         ButterKnife.bind(this);
+        getSupportActionBar().hide();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            View decorView = getWindow().getDecorView();
+            int option = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN | View
+                    .SYSTEM_UI_FLAG_LAYOUT_STABLE | View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;
+            decorView.setSystemUiVisibility(option);
+
+            getWindow().setStatusBarColor(Color.TRANSPARENT);
+        }
 
         b1 = (Button) findViewById(R.id.b1);
         b2 = (Button) findViewById(R.id.b2);
@@ -78,8 +97,16 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
         b6.setOnClickListener(this);
 
         c(R.id.b7);
+
+
+//        Log.d("ccy","onCreate : " + getIntent().getAction());
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+//        Log.d("ccy","onResume : " + getIntent().getAction());
+    }
 
     @Override
     public void onClick(View v) {
@@ -183,28 +210,87 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     @OnClick(R.id.b20)
-    void b20(){
+    void b20() {
         s(RollerRadioAct.class);
     }
 
     @OnClick(R.id.b21)
-    void b21(){
+    void b21() {
         s(SliderAct1.class);
     }
 
     @OnClick(R.id.b22)
-    void b22(){
+    void b22() {
         s(MultiWndAct.class);
     }
 
     @OnClick(R.id.b23)
-    void b23(){
+    void b23() {
         s(WeatherLineAct.class);
     }
 
     @OnClick(R.id.b24)
-    void b24(){
+    void b24() {
         s(TestAct.class);
+    }
+
+    @OnClick(R.id.b25)
+    void b25() {
+        s(WaveActivity.class);
+    }
+
+    @OnClick(R.id.b26)
+    void b26() {
+        s(NestedScrollActivity.class);
+    }
+
+    @OnClick(R.id.b27)
+    void b27() {
+        s(BRVAHActivity.class);
+    }
+
+    @OnClick(R.id.b28)
+    void b28() {
+        s(DouYinActivity.class);
+    }
+
+    @OnClick(R.id.b29)
+    void b29() {
+        s(CollapsingToolBarActivity.class);
+    }
+
+    @OnClick(R.id.b30)
+    void b30() {
+        s(SelectItemActivity.class);
+
+    }
+
+    @OnClick(R.id.b31)
+    void b31() {
+//        s(OkDownloadAct.class);
+
+
+//        Notification build = new NotificationCompat.Builder(this)
+//                .setTicker("ticker")
+//                .setContentTitle("content title")
+//                .setContentText("contcnt text")
+//                .setSmallIcon(R.drawable.uu)
+//                .setContentIntent(PendingIntent.getActivity(this, 0, new Intent(), PendingIntent
+//                        .FLAG_ONE_SHOT))
+//                .setLargeIcon(BitmapFactory.decodeResource(getResources(), R.drawable.cloudy))
+//                .build();
+//        NotificationManager notificationManager = (NotificationManager) getSystemService
+//                (NOTIFICATION_SERVICE);
+//        build.flags = Notification.FLAG_NO_CLEAR;
+//        notificationManager.notify(1, build);
+//        Intent intent = new Intent(Intent.ACTION_VIEW);
+//        intent.setData(Uri.parse("h3cmagic://app.memory?fromWho=lalala&tag=ccy"));
+//        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//        if (getPackageManager().resolveActivity(intent, PackageManager.MATCH_DEFAULT_ONLY) != null) {
+//            startActivity(intent);
+//        } else {
+//            Toast.makeText(this, "找不到", Toast.LENGTH_LONG).show();
+//        }
     }
 
 }
