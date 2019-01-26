@@ -12,26 +12,24 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import butterknife.ButterKnife;
-
 /**
  * Created by XMuser on 2017-06-19.
  */
 
 public class ViewDragHelperLayout extends LinearLayout {
 
-    private static final String TAG ="ccy" ;
+    private static final String TAG = "ccy";
     private ViewDragHelper drag;
     private TextView t1;
     private Button b1;
     private TextView t2;
 
     public ViewDragHelperLayout(Context context) {
-        this(context,null);
+        this(context, null);
     }
 
     public ViewDragHelperLayout(Context context, @Nullable AttributeSet attrs) {
-        this(context,attrs,0);
+        this(context, attrs, 0);
     }
 
     public ViewDragHelperLayout(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
@@ -47,7 +45,7 @@ public class ViewDragHelperLayout extends LinearLayout {
             @Override
             public void onViewDragStateChanged(int state) {
                 super.onViewDragStateChanged(state);
-                Log.d(TAG,"onViewDragStateChanged state =  "+ state);
+                Log.d(TAG, "onViewDragStateChanged state =  " + state);
             }
 
             @Override
@@ -59,13 +57,13 @@ public class ViewDragHelperLayout extends LinearLayout {
             @Override
             public void onViewCaptured(View capturedChild, int activePointerId) {
                 super.onViewCaptured(capturedChild, activePointerId);
-                Log.d(TAG,"onViewCaptured " );
+                Log.d(TAG, "onViewCaptured ");
             }
 
             @Override
             public void onViewReleased(View releasedChild, float xvel, float yvel) {
-                if(releasedChild == t1){
-                    drag.settleCapturedViewAt(0,0);
+                if (releasedChild == t1) {
+                    drag.settleCapturedViewAt(0, 0);
                     invalidate();
                 }
             }
@@ -73,7 +71,7 @@ public class ViewDragHelperLayout extends LinearLayout {
             @Override
             public void onEdgeTouched(int edgeFlags, int pointerId) {
                 super.onEdgeTouched(edgeFlags, pointerId);
-
+                Log.i(TAG, "onEdgeTouched: ");
             }
 
             @Override
@@ -85,8 +83,8 @@ public class ViewDragHelperLayout extends LinearLayout {
             @Override
             public void onEdgeDragStarted(int edgeFlags, int pointerId) {
                 super.onEdgeDragStarted(edgeFlags, pointerId);
-                Log.d(TAG,"onEdgeDragStarted,edge = " + edgeFlags+";pointerId = " + pointerId);
-                drag.captureChildView(t2,pointerId);
+                Log.d(TAG, "onEdgeDragStarted,edge = " + edgeFlags + ";pointerId = " + pointerId);
+                drag.captureChildView(t2, pointerId);
             }
 
             @Override
@@ -107,23 +105,26 @@ public class ViewDragHelperLayout extends LinearLayout {
 
             @Override
             public int clampViewPositionHorizontal(View child, int left, int dx) {
-               if(left < -child.getMeasuredWidth()/2){
-                   left = -child.getMeasuredWidth()/2;
-               }
-               if(left > getMeasuredWidth()-child.getMeasuredWidth()/2){
-                   left = getMeasuredWidth()-child.getMeasuredWidth()/2;
-               }
+                if (left < -child.getMeasuredWidth() / 2) {
+                    left = -child.getMeasuredWidth() / 2;
+                }
+                if (left > getMeasuredWidth() - child.getMeasuredWidth() / 2) {
+                    left = getMeasuredWidth() - child.getMeasuredWidth() / 2;
+                }
 //               Log.d(TAG,"left = " + left);
-               return left;
+                return left;
             }
 
             @Override
             public int clampViewPositionVertical(View child, int top, int dy) {
+                top = Math.max(0, top);
+                top = Math.min(getMeasuredHeight() - child.getMeasuredHeight(), top);
                 return top;
             }
         });
-//        drag.setEdgeTrackingEnabled(ViewDragHelper.EDGE_BOTTOM|ViewDragHelper.EDGE_RIGHT|ViewDragHelper.EDGE_LEFT|ViewDragHelper.EDGE_TOP);
-          drag.setEdgeTrackingEnabled(ViewDragHelper.EDGE_ALL);
+//        drag.setEdgeTrackingEnabled(ViewDragHelper.EDGE_BOTTOM|ViewDragHelper
+// .EDGE_RIGHT|ViewDragHelper.EDGE_LEFT|ViewDragHelper.EDGE_TOP);
+        drag.setEdgeTrackingEnabled(ViewDragHelper.EDGE_ALL);
     }
 
     @Override
@@ -135,7 +136,7 @@ public class ViewDragHelperLayout extends LinearLayout {
         t1.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getContext(),"t1",Toast.LENGTH_LONG).show();
+                Toast.makeText(getContext(), "t1", Toast.LENGTH_LONG).show();
             }
         });
     }
@@ -154,9 +155,10 @@ public class ViewDragHelperLayout extends LinearLayout {
 
     @Override
     public void computeScroll() {
-        if(drag.continueSettling(true)){
+        if (drag.continueSettling(true)) {
             invalidate();
         }
     }
+
 
 }

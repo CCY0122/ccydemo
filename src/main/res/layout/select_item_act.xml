@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="#f5f6f7">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/b1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="button1"/>
+
+        <Button
+            android:id="@+id/b12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/b3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/b4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/b5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <com.example.ccydemo.selectitem.SelectItem
+        android:id="@+id/s1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/commonSelectItem"
+        app:rightText=""
+        app:leftImgSrc="@drawable/thunder"
+        app:leftImgWidth="40dp"
+        app:leftImgHeight="40dp"
+        app:rightImgWidth="14dp"
+        app:rightImgHeight="26dp"
+        app:dividerColor="#ffff0000"
+        app:dividerMarginStart="16dp"
+        app:dividerMarginEnd="16dp"/>
+
+    <com.example.ccydemo.selectitem.SelectItem
+        android:id="@+id/s11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/commonSelectItem"
+        app:leftImgSrc="@drawable/uu"
+        app:leftImgWidth="40dp"
+        app:leftImgHeight="40dp"
+        app:rightImgWidth="14dp"
+        app:rightImgHeight="26dp"
+        app:dividerColor="#ffff0000"
+        app:dividerMarginStart="16dp"
+        app:dividerMarginEnd="16dp"/>
+
+    <com.example.ccydemo.selectitem.SelectItem
+        android:id="@+id/s2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#ffffff"
+        app:title="title_long_12312312312312312312312323123123123121212"
+        app:rightImgSrc="@drawable/sun"
+        app:rightImgHeight="40dp"
+        app:rightImgWidth="40dp"
+        app:dividerColor="#ffff0000"/>
+    <com.example.ccydemo.selectitem.SelectItem
+        android:id="@+id/s3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#ffffff"
+        app:title="123123"
+        app:hint="popopopopopaspdoapsdoapsdoa"
+        app:rightText="几个中文几个中午几个中文几个中文" />
+    <com.example.ccydemo.selectitem.SelectItem
+        android:id="@+id/s4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:leftImgSrc="@drawable/rain"
+        app:leftImgWidth="40dp"
+        app:leftImgHeight="40dp"
+        app:title="123"
+        app:hint="123123"
+        android:background="#ffffff"/>
+    <com.example.ccydemo.selectitem.SelectItem
+        android:id="@+id/s5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:type="checkable"
+        app:title="asdasd"
+        android:background="#ffffff"
+        app:hint="几几个中文几个中午几个中文几个中文几个中文几个中午几个中文几个中文几个中文几个中午几个中文几个中文几个中文几个中午几个中文几个中文"/>
+
+
+</LinearLayout>

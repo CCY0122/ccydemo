@@ -34,7 +34,7 @@ public class TouchView extends View {
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        boolean r =  true;
+        boolean r =  false;
         Log.d("ccy","view onTouchEvent,return " + r);
         return r;
     }

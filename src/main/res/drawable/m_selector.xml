@@ -3,5 +3,6 @@
     <item android:state_pressed="true" android:drawable="@drawable/sun"/>
     <item android:state_selected="true" android:drawable="@drawable/sun"/>
     <item android:state_enabled="false" android:drawable="@drawable/cloudy"/>
+    <item android:state_checked="true" android:drawable="@drawable/rain"/>
     <item android:drawable="@drawable/thunder"/>
 </selector>

@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+
+        <com.example.ccydemo.StatusBarSpace
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#44ff0000" />
+
 
         <Button
             android:id="@+id/b1"
@@ -99,62 +104,109 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="利用Glide实现Gif合成" />
+
         <Button
             android:id="@+id/b16"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="recyclerView之DiffUtil使用" />
+
         <Button
             android:id="@+id/b17"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="View的拖动机制DragAndDrop" />
+
         <Button
             android:id="@+id/b18"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Recyclerview多类型布局库：Multitype" />
+
         <Button
             android:id="@+id/b19"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="自定义加载控件rectLoadingView" />
+
         <Button
             android:id="@+id/b20"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="滚动选择自定义view" />
+
         <Button
             android:id="@+id/b21"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="activity滑动退出：slidr" />
+
         <Button
             android:id="@+id/b22"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="多窗口控件" />
+
         <Button
             android:id="@+id/b23"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="miui weather line" />
+            android:text="仿小米天气预测表控件" />
+
         <Button
             android:id="@+id/b24"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Test" />
+
         <Button
             android:id="@+id/b25"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="波浪控件" />
+
         <Button
             android:id="@+id/b26"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="嵌套滚动、behavior" />
 
+        <Button
+            android:id="@+id/b27"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="BRVAH" />
+
+        <Button
+            android:id="@+id/b28"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="抖音加载框" />
+
+        <Button
+            android:id="@+id/b29"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:stateListAnimator="@animator/selector_click_to_scale"
+            android:text="CollapsingToolBarLayout" />
+
+        <TextView
+            android:id="@+id/b30"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/gradient_bg_stroke"
+            android:gravity="center"
+            android:padding="10dp"
+            android:stateListAnimator="@animator/selector_click_to_scale"
+            android:text="通用选项item封装" />
+
+
+        <Button
+            android:id="@+id/b31"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="okdownload" />
 
 
     </LinearLayout>

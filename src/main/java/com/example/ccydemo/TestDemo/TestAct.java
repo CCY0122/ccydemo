@@ -1,5 +1,6 @@
 package com.example.ccydemo.TestDemo;
 
+import android.animation.ValueAnimator;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
@@ -12,6 +13,8 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.MenuItem;
@@ -22,7 +25,9 @@ import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.douyinloadingview.DYLoadingView;
 import com.example.ccydemo.BaseActivity;
+import com.example.ccydemo.DragAndSwipe.SimpleRvAdapter;
 import com.example.ccydemo.EventBusDemo.CustomFragment;
 import com.example.ccydemo.R;
 import com.example.ccydemo.recyclerviewDiffutilDemo.SimpleBean;
@@ -32,6 +37,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
@@ -50,7 +56,13 @@ public class TestAct extends BaseActivity {
     List<View> views = new ArrayList<>();
     PasswordView pwdv;
     TextView pwdt;
+    RecyclerView rv1;
+
     private ImageView img;
+    @BindView(R.id.dyl)
+     DYLoadingView dyl;
+
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -59,6 +71,7 @@ public class TestAct extends BaseActivity {
         ButterKnife.bind(this);
         d = new DialogTest();
         indicatorView = (IndicatorView) findViewById(R.id.indicator);
+        rv1 = (RecyclerView) findViewById(R.id.rv1);
         vp = (ViewPager) findViewById(R.id.vp);
         for (int i = 0; i < vps.length; i++) {
             TextView tv = new TextView(this);
@@ -143,7 +156,16 @@ public class TestAct extends BaseActivity {
         });
 
         img = (ImageView) findViewById(R.id.b1);
-        img.setEnabled(false);
+
+
+        List<String> da = new ArrayList<>();
+        for (int i = 0; i < 10; i++) {
+            da.add("this is " + i);
+        }
+        SimpleRvAdapter adapter = new SimpleRvAdapter(this,da);
+        rv1.setAdapter(adapter);
+        rv1.setLayoutManager(new LinearLayoutManager(this));
+        rv1.addItemDecoration(new RoundDecoration());
     }
 
     @Override
@@ -153,21 +175,8 @@ public class TestAct extends BaseActivity {
 
     @OnClick(R.id.b1)
     void openDialog(View v) {
-        d.show(getSupportFragmentManager(), "1");
-//        AlertDialog.Builder builder = new AlertDialog.Builder(this,R.style.baseDialog);
-//        builder.setView(R.layout.rv_item);
-//        builder.show();
-//        PopupMenu popupMenu = new PopupMenu(this,v);
-//        popupMenu.getMenuInflater().inflate(R.menu.test_menu,popupMenu.getMenu());
-//        popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-//            @Override
-//            public boolean onMenuItemClick(MenuItem item) {
-//                Toast.makeText(TestAct.this,""+item.getTitle(),Toast.LENGTH_SHORT).show();
-//                return false;
-//            }
-//        });
-//        popupMenu.show();
-        pwdv.setPassword("123456");
+        dyl.start();
+        d.show(getSupportFragmentManager(),null);
     }
 
 }

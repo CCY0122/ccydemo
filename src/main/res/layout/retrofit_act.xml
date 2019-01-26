@@ -100,4 +100,10 @@
         android:visibility="invisible"
         android:layout_gravity="center"/>
 
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:hint="123123123123"/>
+
 </FrameLayout>

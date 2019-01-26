@@ -41,6 +41,8 @@ public class EventBusAct1 extends BaseActivity {
     @BindView(R.id.vp)
     ViewPager vp;
 
+    private JustBean justBean;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,9 +50,16 @@ public class EventBusAct1 extends BaseActivity {
         ButterKnife.bind(this);
         EventBus.getDefault().register(this);
         initVp();
+        justBean = new JustBean();
     }
 
-//    @Override
+    @Override
+    protected void onResume() {
+        super.onResume();
+        justBean.test();
+    }
+
+    //    @Override
 //    protected void onStart() {
 //        super.onStart();
 //        EventBus.getDefault().register(this);
@@ -108,7 +117,7 @@ public class EventBusAct1 extends BaseActivity {
 
     @OnClick(R.id.btn)
     public void b1(){
-        EventBus.getDefault().post(new CustomBean(10,"from main act"));
+        EventBus.getDefault().postSticky(new CustomBean(10,"from main act"));
     }
 
     @OnClick(R.id.btn2)

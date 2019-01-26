@@ -69,8 +69,20 @@ public class BadgeAndSlidMenu extends BaseActivity {
         iv = (ImageView) findViewById(R.id.iv1);
         lv = (SwipeMenuListView) findViewById(R.id.lv1);
 
-        new QBadgeView(this).bindTarget(tv).setBadgeNumber(123);
-        new QBadgeView(this).bindTarget(iv).setBadgeNumber(-1);
+        new QBadgeView(this).bindTarget(tv).setBadgeNumber(123).setOnDragStateChangedListener(new Badge.OnDragStateChangedListener() {
+            @Override
+            public void onDragStateChanged(int dragState, Badge badge, View targetView) {
+
+            }
+        }).setGravityOffset(0,0,true);
+        new QBadgeView(this).bindTarget(iv).setBadgeNumber(-1).setOnDragStateChangedListener(new Badge.OnDragStateChangedListener() {
+            @Override
+            public void onDragStateChanged(int dragState, Badge badge, View targetView) {
+                if(dragState == STATE_SUCCEED){
+                    Toast.makeText(targetView.getContext(),""+badge.getBadgeNumber(),Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
 
         lv.setMenuCreator(creator);
         lv.setOnMenuItemClickListener(new SwipeMenuListView.OnMenuItemClickListener() {
@@ -121,7 +133,14 @@ public class BadgeAndSlidMenu extends BaseActivity {
 //            vh.tv.setText(position+"");
             vh.badge.setBadgeNumber(position);
             ((TextView)vh.badge.getTargetView()).setText(position+"");
-
+            vh.badge.setOnDragStateChangedListener(new Badge.OnDragStateChangedListener() {
+                @Override
+                public void onDragStateChanged(int dragState, Badge badge, View targetView) {
+                    if(dragState == STATE_SUCCEED){
+                        Toast.makeText(targetView.getContext(),""+badge.getBadgeNumber(),Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
             return convertView;
         }
 
