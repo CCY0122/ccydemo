@@ -7,6 +7,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -40,6 +41,14 @@ import com.example.ccydemo.selectitem.SelectItemActivity;
 import com.example.ccydemo.sliderDemo.SliderAct1;
 import com.example.ccydemo.videoViewDemo.VideoViewAct;
 import com.example.ccydemo.wavedemo.WaveActivity;
+import com.liulishuo.okdownload.DownloadMonitor;
+import com.liulishuo.okdownload.DownloadTask;
+import com.liulishuo.okdownload.OkDownload;
+import com.liulishuo.okdownload.core.breakpoint.BreakpointInfo;
+import com.liulishuo.okdownload.core.cause.EndCause;
+import com.liulishuo.okdownload.core.cause.ResumeFailedCause;
+import com.liulishuo.okdownload.core.dispatcher.DownloadDispatcher;
+import com.liulishuo.okdownload.core.file.ProcessFileStrategy;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -294,8 +303,7 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
         //this is test brance
         // this is main
 
-        //this is test 2222
-        //test test test
+        //thi12we12es is test 2222
     }
 
 }
